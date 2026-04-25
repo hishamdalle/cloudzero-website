@@ -62,12 +62,22 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: padding 0.3s ease;
 }
 
 nav .logo img {
   height: 80px;
   width: auto;
   filter: brightness(0) invert(1);
+  transition: height 0.3s ease;
+}
+
+nav.scrolled {
+  padding: 8px 40px;
+}
+
+nav.scrolled .logo img {
+  height: 40px;
 }
 
 nav ul {
