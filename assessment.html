@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AWS Partner Readiness Assessment · CloudZero</title>
+<meta name="description" content="A two-minute AWS partner readiness assessment. Answer six questions and get a scored read on where your AWS partnership actually stands — and what to sequence next."/>
+<link rel="canonical" href="https://cloudzero.ca/assessment.html"/>
+<meta name="theme-color" content="#0b1422"/>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
+<meta name="robots" content="index,follow"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0b1422;--ink:#111827;--mist:#f5f6f4;--bone:#ede9e2;
+--orange:#e8822a;--teal:#0d6e5e;--teal-lt:#e3f4f0;
+--border:#ddd8cf;--muted:#6b7280;--white:#ffffff;
+}
+html{font-size:112.5%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--mist);font-size:1rem;line-height:1.7}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:58px}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo-badge{font-size:0.58rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;background:var(--orange);color:var(--white);padding:2px 8px;border-radius:2px}
+.nav-back{font-size:0.79rem;color:rgba(255,255,255,0.58);transition:color 0.15s}
+.nav-back:hover{color:var(--white)}
+.wrap{max-width:760px;margin:0 auto;padding:54px 24px 90px}
+.eyebrow{font-size:0.67rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--orange);margin-bottom:10px}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--ink);line-height:1.16;margin-bottom:14px}
+.lede{font-size:0.98rem;color:var(--muted);max-width:560px;line-height:1.8;margin-bottom:18px}
+/* progress */
+.progress-bar{position:sticky;top:58px;z-index:50;height:4px;background:var(--bone)}
+.progress-fill{height:100%;width:0;background:var(--orange);transition:width 0.35s ease}
+.progress-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.74rem;color:var(--muted);margin:26px 0 10px;letter-spacing:0.5px;text-transform:uppercase;font-weight:500}
+/* questions */
+.q{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 26px;margin-bottom:16px;opacity:0.55;transition:opacity 0.25s,border-color 0.25s}
+.q.active,.q.answered{opacity:1}
+.q.answered{border-color:var(--teal)}
+.q-tag{font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--orange);margin-bottom:8px}
+.q-title{font-weight:500;font-size:1.02rem;color:var(--ink);margin-bottom:16px;line-height:1.4}
+.opt{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--border);border-radius:6px;padding:12px 15px;margin-bottom:9px;cursor:pointer;transition:border-color 0.15s,background 0.15s;font-size:0.9rem;color:var(--ink)}
+.opt:last-child{margin-bottom:0}
+.opt:hover{border-color:var(--orange)}
+.opt input{margin-top:3px;accent-color:var(--orange);flex-shrink:0}
+.opt.sel{border-color:var(--orange);background:#fff7ef}
+/* result */
+.result{background:var(--navy);border-radius:10px;padding:40px 38px;color:var(--white);margin-top:30px;display:none}
+.result.show{display:block;animation:rise 0.5s ease}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.result .eyebrow{color:var(--orange)}
+.score-ring{display:flex;align-items:baseline;gap:10px;margin:6px 0 4px}
+.score-ring .n{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--white);line-height:1}
+.score-ring .d{font-size:1rem;color:rgba(255,255,255,0.4)}
+.band{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--orange);margin-bottom:10px}
+.meter{height:8px;border-radius:5px;background:rgba(255,255,255,0.1);overflow:hidden;margin:14px 0 22px}
+.meter-fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#f0a45e);transition:width 0.9s cubic-bezier(.2,.8,.2,1)}
+.result p.diag{font-size:0.95rem;color:rgba(255,255,255,0.74);line-height:1.85;margin-bottom:18px}
+.result-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0 26px}
+@media(max-width:560px){.result-cols{grid-template-columns:1fr}}
+.rc h4{font-size:0.66rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:9px;font-weight:600}
+.rc ul{list-style:none}
+.rc li{font-size:0.86rem;color:rgba(255,255,255,0.82);line-height:1.5;padding-left:16px;position:relative;margin-bottom:8px}
+.rc li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.rec-tier{background:rgba(232,130,42,0.12);border:1px solid rgba(232,130,42,0.35);border-radius:7px;padding:16px 18px;margin-bottom:22px}
+.rec-tier .t{font-size:0.64rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:4px}
+.rec-tier .v{font-size:1rem;color:var(--white);font-weight:500}
+.rec-tier .v span{color:rgba(255,255,255,0.55);font-weight:400;font-size:0.86rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:var(--white);padding:12px 24px;border-radius:4px;font-weight:500;font-size:0.9rem;cursor:pointer;border:none;transition:background 0.15s;font-family:inherit}
+.btn-primary:hover{background:#d0711e}
+.btn-ghost{display:inline-block;padding:12px 4px;font-size:0.84rem;color:rgba(255,255,255,0.55);border-bottom:1px solid rgba(255,255,255,0.18)}
+.btn-ghost:hover{color:var(--white)}
+.submit-row{margin-top:8px}
+.submit-row .btn-primary:disabled{background:rgba(17,24,39,0.25);cursor:not-allowed}
+.hint{font-size:0.78rem;color:var(--muted);margin-top:10px}
+.restart{display:inline-block;margin-top:20px;font-size:0.8rem;color:var(--muted);cursor:pointer;border-bottom:1px solid var(--border)}
+.restart:hover{color:var(--ink)}
+.disclaimer{font-size:0.72rem;color:var(--muted);margin-top:34px;text-align:center;line-height:1.6}
+@media(max-width:600px){nav{padding:0 18px}.wrap{padding:38px 18px 70px}.result{padding:30px 22px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo-wrap" aria-label="CloudZero home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 40" role="img" aria-label="CloudZero" style="height:34px;width:auto;display:block;color:#fff"><g fill="currentColor"><polygon points="4,7 20,1.5 36,7 20,12.5"/><polygon points="4,15 20,9.5 36,15 20,20.5" opacity="0.6"/><polygon points="4,23 20,17.5 36,23 20,28.5" opacity="0.38"/><polygon points="4,31 20,25.5 36,31 20,36.5" opacity="0.22"/></g><text x="50" y="28" font-family="'DM Sans',-apple-system,Segoe UI,sans-serif" font-size="27" letter-spacing="-0.5"><tspan fill="currentColor" font-weight="500">cloud</tspan><tspan fill="#e8822a" font-weight="700">zero</tspan></text></svg>
+    <span class="logo-badge">Partner Accelerator</span>
+  </a>
+  <a href="index.html" class="nav-back">&larr; Back to site</a>
+</nav>
+<div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+
+<div class="wrap">
+  <div class="eyebrow">AWS Partner Readiness</div>
+  <h1>Where does your AWS partnership actually stand?</h1>
+  <p class="lede">Six questions, about two minutes. You'll get a scored read on how ready you are to co-sell with AWS — and what to sequence next. No email required to see your result.</p>
+
+  <div class="progress-meta"><span id="counter">0 of 6 answered</span><span id="pct">0%</span></div>
+
+  <form id="quiz"></form>
+
+  <div class="submit-row">
+    <button class="btn-primary" id="seeResult" disabled>See my result</button>
+    <div class="hint" id="hint">Answer all six questions to unlock your score.</div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="eyebrow">Your readiness</div>
+    <div class="score-ring"><span class="n" id="scoreN">0</span><span class="d">/ 24</span></div>
+    <div class="band" id="bandName"></div>
+    <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+    <p class="diag" id="diag"></p>
+    <div class="rec-tier"><div class="t">Suggested starting point</div><div class="v" id="recTier"></div></div>
+    <div class="result-cols">
+      <div class="rc"><h4>Where you're strong</h4><ul id="strongList"></ul></div>
+      <div class="rc"><h4>What to sequence next</h4><ul id="gapList"></ul></div>
+    </div>
+    <div class="btns">
+      <a href="index.html#contact"><button class="btn-primary">Book a working session</button></a>
+      <a href="index.html#services" class="btn-ghost">See engagement tiers &rarr;</a>
+    </div>
+    <span class="restart" id="restart">Retake the assessment</span>
+  </div>
+
+  <p class="disclaimer">This self-assessment is a directional guide, not an official AWS evaluation. CloudZero is not affiliated with Amazon Web Services, Inc.</p>
+</div>
+
+<script>
+const QUESTIONS = [
+  { tag: "APN · Services Path", dim: "Stage",
+    title: "Where are you on the AWS Partner Network Services Path?",
+    opts: [
+      "Not enrolled yet, or just Registered",
+      "Enrolled and working toward Confirmed",
+      "Confirmed (APN fee paid) and building toward Validated / Select",
+      "Validated or Differentiated with a Competency or Specialization" ] },
+  { tag: "Co-sell · ACE", dim: "Co-sell",
+    title: "What does your co-sell motion with AWS look like?",
+    opts: [
+      "We don't have one. Pipeline comes from our own relationships",
+      "Occasional referrals from a seller or two we happen to know",
+      "A defined co-sell motion with field kits and regular ACE submissions",
+      "ACE-eligible — AWS account teams bring opportunities to us" ] },
+  { tag: "Technical · Validation", dim: "Technical",
+    title: "How far along is your technical validation with AWS?",
+    opts: [
+      "A few individual certifications, nothing formalized",
+      "Foundational Technical Review (FTR) in progress or done",
+      "One Competency or the Agentic AI Specialization underway",
+      "Multiple Competencies / Specializations validated" ] },
+  { tag: "Funding · Programs", dim: "Funding",
+    title: "How are you using AWS partner funding today?",
+    opts: [
+      "We're not using AWS funding, or didn't know we qualified",
+      "We've used MDF or MAP once, ad hoc",
+      "We actively apply for MAP / MDF on live opportunities",
+      "We run a funding lifecycle across MAP, MDF, MPOPP and more" ] },
+  { tag: "Marketplace", dim: "Marketplace",
+    title: "What's your AWS Marketplace posture?",
+    opts: [
+      "Not on Marketplace",
+      "Registered as a seller, no live listing yet",
+      "Listing is live and transacting",
+      "Running private offers / CPPO tied to co-sell pipeline" ] },
+  { tag: "Field relationships", dim: "Field",
+    title: "How developed are your AWS field relationships?",
+    opts: [
+      "We're not sure who our PDM is",
+      "We know our PDM but engage occasionally",
+      "We work our PDM, PSA, and PES deliberately",
+      "AWS field teams sponsor us into accounts and funding" ] }
+];
+
+const BANDS = [
+  { min: 6,  max: 11, name: "Foundation stage",
+    tier: "Foundation — Assessment & Plan", tierNote: "map the gap, sequence the first 90 days",
+    diag: "You have real capability, but the AWS partnership isn't yet working for you as a system. The biggest wins right now are sequencing — doing the right things in the right order so each step unlocks the next. Most of your leverage is still unclaimed." },
+  { min: 12, max: 17, name: "Building momentum",
+    tier: "Accelerate — Plan & Execution", tierNote: "hands-on delivery of ACE, funding, and Marketplace",
+    diag: "You're moving, with pieces in place across tier, funding, or co-sell — but there are gaps in the sequence that quietly cap your return. Tightening the motion and getting the field relationships working is what turns activity into AWS-sourced pipeline." },
+  { min: 18, max: 22, name: "Co-sell ready",
+    tier: "Accelerate or Embedded", tierNote: "optimize the motion and scale it",
+    diag: "You're running a credible AWS practice with most of the machinery in place. The opportunity now is optimization and scale — converting consistent execution into AWS bringing you opportunities, and making sure no funding or Marketplace lever is left on the table." },
+  { min: 23, max: 24, name: "Differentiated",
+    tier: "Embedded — Ongoing Partner Management", tierNote: "an alliances function without the headcount",
+    diag: "You're operating like a top-tier partner. At this level the work is staying ahead of program changes, keeping the pipeline and funding lifecycle clean, and running it continuously without it consuming your team. That's an ongoing alliances function, not a project." }
+];
+
+const STRONG = {
+  Stage:"Solid standing on the Services Path", Co_sell:"A working co-sell motion",
+  Technical:"Technical validation AWS trusts", Funding:"You're capturing AWS funding",
+  Marketplace:"Marketplace is live for you", Field:"Real AWS field relationships" };
+const GAP = {
+  Stage:"Advance your Services Path stage in the right order", Co_sell:"Build a repeatable ACE co-sell motion",
+  Technical:"Close the technical-validation gap (FTR, Competency, Specialization)", Funding:"Put MAP / MDF funding to work — you likely qualify for more",
+  Marketplace:"Turn Marketplace into a co-sell channel, not a checkbox", Field:"Develop the PDM / PSA / PES relationships that unlock everything" };
+
+const form = document.getElementById('quiz');
+const answers = {};
+QUESTIONS.forEach((q, i) => {
+  const el = document.createElement('div');
+  el.className = 'q' + (i === 0 ? ' active' : '');
+  el.id = 'q' + i;
+  el.innerHTML = '<div class="q-tag">' + q.tag + '</div><div class="q-title">' +
+    (i + 1) + '. ' + q.title + '</div>' +
+    q.opts.map((o, j) =>
+      '<label class="opt"><input type="radio" name="q' + i + '" value="' + (j + 1) +
+      '"><span>' + o + '</span></label>').join('');
+  form.appendChild(el);
+});
+
+function refresh() {
+  const n = Object.keys(answers).length;
+  document.getElementById('counter').textContent = n + ' of 6 answered';
+  const pct = Math.round(n / 6 * 100);
+  document.getElementById('pct').textContent = pct + '%';
+  document.getElementById('pfill').style.width = pct + '%';
+  const btn = document.getElementById('seeResult');
+  btn.disabled = n < 6;
+  document.getElementById('hint').style.display = n < 6 ? 'block' : 'none';
+}
+
+form.addEventListener('change', e => {
+  if (e.target.name && e.target.name.startsWith('q')) {
+    const idx = +e.target.name.slice(1);
+    answers[idx] = +e.target.value;
+    const block = document.getElementById('q' + idx);
+    block.classList.add('answered');
+    block.querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+    e.target.closest('.opt').classList.add('sel');
+    const next = document.getElementById('q' + (idx + 1));
+    if (next) next.classList.add('active');
+    refresh();
+  }
+});
+
+document.getElementById('seeResult').addEventListener('click', () => {
+  const score = Object.values(answers).reduce((a, b) => a + b, 0);
+  const band = BANDS.find(b => score >= b.min && score <= b.max);
+  document.getElementById('bandName').textContent = band.name;
+  document.getElementById('diag').textContent = band.diag;
+  document.getElementById('recTier').innerHTML = band.tier + ' <span>— ' + band.tierNote + '</span>';
+  // strongest two dimensions and weakest two
+  const dims = QUESTIONS.map((q, i) => ({ dim: q.dim, v: answers[i] || 0 }));
+  const strong = [...dims].sort((a, b) => b.v - a.v).filter(d => d.v >= 3).slice(0, 2);
+  const gaps = [...dims].sort((a, b) => a.v - b.v).filter(d => d.v <= 2).slice(0, 3);
+  const key = d => d.replace('-', '_');
+  const sl = document.getElementById('strongList');
+  const gl = document.getElementById('gapList');
+  sl.innerHTML = strong.length ? strong.map(d => '<li>' + STRONG[key(d.dim)] + '</li>').join('')
+    : '<li>Plenty of upside — almost everything is still to claim.</li>';
+  gl.innerHTML = gaps.length ? gaps.map(d => '<li>' + GAP[key(d.dim)] + '</li>').join('')
+    : '<li>No major gaps — the work is optimization and staying current.</li>';
+  document.getElementById('scoreN').textContent = score;
+  const res = document.getElementById('result');
+  res.classList.add('show');
+  setTimeout(() => { document.getElementById('meterFill').style.width = Math.round(score / 24 * 100) + '%'; }, 60);
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('restart').addEventListener('click', () => {
+  for (const k in answers) delete answers[k];
+  form.querySelectorAll('input').forEach(i => i.checked = false);
+  form.querySelectorAll('.q').forEach((q, i) => { q.className = 'q' + (i === 0 ? ' active' : ''); });
+  form.querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('meterFill').style.width = '0';
+  refresh();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+refresh();
+</script>
+</body>
+</html>
