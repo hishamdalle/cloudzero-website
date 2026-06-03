@@ -131,7 +131,7 @@ const QUESTIONS = [
     title:"First — which best describes your business?",
     opts:[
       "Technology partner / ISV — you build software, data, or IP that runs on AWS",
-      "Consulting, SI, reseller, MSP or supplier — you deliver services or resell on AWS" ] },
+      "Consulting, SI or MSP — you deliver services on AWS" ] },
   { tag:"APN · your path", dim:"Stage", scored:true,
     title:"Where are you in the AWS Partner Network?",
     opts:[
@@ -247,7 +247,7 @@ document.getElementById('seeResult').addEventListener('click', () => {
   const readiness = Math.round(got / max * 100);
   const band = BANDS.find(b => readiness <= b.max);
 
-  const segLabel = seg === 'isv' ? 'As a technology partner / ISV' : 'As a services, consulting or reseller partner';
+  const segLabel = seg === 'isv' ? 'As a technology partner / ISV' : 'As a consulting, SI or MSP partner';
   document.getElementById('bandName').textContent = band.name;
   document.getElementById('diag').textContent = segLabel + ', ' + band.diag.charAt(0).toLowerCase() + band.diag.slice(1);
   document.getElementById('recTier').innerHTML = band.tier + ' <span>— ' + band.tierNote + '</span>';
