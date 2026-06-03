@@ -22,7 +22,8 @@
 --orange:#e8822a;--teal:#0d6e5e;--teal-lt:#e3f4f0;
 --border:#ddd8cf;--muted:#6b7280;--white:#ffffff;
 }
-body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);font-size:16px;line-height:1.65}
+html{font-size:112.5%}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);font-size:1rem;line-height:1.7}
 a{color:inherit;text-decoration:none}
 nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:58px}
 .logo-wrap{display:flex;align-items:center;gap:10px}
@@ -154,6 +155,16 @@ nav{padding:0 20px}.nav-links{display:none}
 .path-stages{flex-wrap:wrap}.hero-stats{flex-wrap:wrap;gap:20px}
 footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
 }
+
+.contact-form{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto;text-align:left}
+.contact-form input,.contact-form textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:11px 14px;color:#fff;font-family:inherit;font-size:0.9rem;line-height:1.5}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.4)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--orange)}
+.contact-form textarea{min-height:104px;resize:vertical}
+.contact-form button{background:var(--orange);color:#fff;border:none;border-radius:4px;padding:12px;font-family:inherit;font-weight:500;font-size:0.9rem;cursor:pointer;transition:background 0.15s;margin-top:2px}
+.contact-form button:hover{background:#d0711e}
+.contact-alt{display:inline-block;margin-top:18px;font-size:0.8rem;color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:1px}
+.contact-alt:hover{color:#fff}
 </style>
 </head>
 <body>
@@ -203,15 +214,15 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
   <div class="hero-inner">
     <div class="hero-label">CloudZero &nbsp;·&nbsp; AWS Partner Accelerator</div>
     <h1>Partner profitability starts with <em>owning your edge.</em></h1>
-    <p class="hero-sub">Omdia puts the AWS partner multiplier at $6 in services revenue for every $1 of AWS technology sold. That number is not automatic. It is earned by partners who show up with upfront value, a clear point of view on the customer problem they solve, and the consistency to hold a high bar. CloudZero is a methodology-driven accelerator that builds the practice, the evidence, and the field relationships that make the multiplier real.</p>
+    <p class="hero-sub">Most AWS partners leave money on the table — not for lack of capability, but because the partnership runs on rules no one writes down. Tier, funding, co-sell, Marketplace: each has a sequence that works and a dozen that quietly stall. CloudZero is the accelerator that knows the difference and runs it with you.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a working session</a>
       <a href="#methodology" class="btn-ghost">See the methodology</a>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="num">$6</div><div class="lbl">services revenue per $1 of AWS sold. Omdia 2026</div></div>
-      <div class="h-stat"><div class="num">51%</div><div class="lbl">higher revenue for active co-selling partners</div></div>
-      <div class="h-stat"><div class="num">MDF</div><div class="lbl">eligible. Use your program funds to engage us</div></div>
+      <div class="h-stat"><div class="num">5</div><div class="lbl">people on your AWS team decide your trajectory. Most partners engage one.</div></div>
+      <div class="h-stat"><div class="num">Live</div><div class="lbl">Registered AWS Marketplace seller, ready to co-sell.</div></div>
+      <div class="h-stat"><div class="num">MDF</div><div class="lbl">eligible engagement — fund the work with AWS program dollars.</div></div>
     </div>
   </div>
 </section>
@@ -220,24 +231,24 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
   <div class="container">
     <div class="eyebrow">The CloudZero methodology</div>
     <h2>A program is a methodology, not a checklist.</h2>
-    <p class="section-lead">Most partners focus on unlocking MAP, MDF, or ACE Eligibility as if the credential is the goal. The credential is the outcome of the work. What earns it is building a consistent practice, generating qualified evidence, and developing field relationships that AWS account teams actually rely on. CloudZero runs that process with you in the right sequence.</p>
+    <p class="section-lead">Most partners chase credentials — MAP, MDF, ACE — as if the badge is the goal. The badge is a byproduct. What earns it is practice, evidence, and field relationships AWS actually relies on, built in the right order. We run that sequence with you.</p>
     <div class="process-grid">
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-title">Working backwards assessment</div>
-        <div class="step-body">We start where you are. Your tier, your ACE pipeline, your certifications, your active funding, and your Marketplace posture mapped against your next real milestone. The gap is specific. The sequence of what to address first is the deliverable.</div>
+        <div class="step-body">We start where you are — tier, pipeline, certifications, funding, Marketplace posture — mapped against your next real milestone. The gap comes back specific, and so does the order you should close it in.</div>
         <div class="step-tag">Working backwards session</div>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-title">Sequenced plan of action</div>
-        <div class="step-body">The order of operations matters more than the effort. Paying the APN fee before certifications stalls progress. Submitting ACE before building field relationships produces silence. The plan tells you what to do and what to do first so each step creates the conditions for the next.</div>
+        <div class="step-body">Order of operations beats effort. Make a move in the wrong sequence and you stall; reach for co-sell before you've earned the room and you get silence. The plan puts the moves in the order that compounds.</div>
         <div class="step-tag">90-day roadmap</div>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-title">Execution alongside you</div>
-        <div class="step-body">We write the ACE submissions, the funding proposals, the field-ready collateral, and the Marketplace strategy. We prep PDM meetings and coach field conversations. You get experienced alliances output without building a team to produce it.</div>
+        <div class="step-body">We write the submissions, the funding proposals, the field-ready collateral. We prep the AWS meetings and coach the field conversations. You get a senior alliances function without building the team to staff it.</div>
         <div class="step-tag">Done-with-you delivery</div>
       </div>
     </div>
@@ -245,36 +256,36 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
     <div class="aws-team-block">
       <div class="aws-team-left">
         <h3>What AWS assigns to a partner and what it means</h3>
-        <p>When AWS invests in a partner it assigns a team. Knowing who does what determines how you show up. <strong>Most partners treat every AWS contact the same way.</strong> That is the fastest path to being deprioritized.</p>
-        <p>AWS invests field time and co-sell energy in partners who arrive prepared, bring qualified pipeline, and hold a consistent point of view on a specific customer problem. Designated coverage, field sponsorship for funding, and inclusion in strategic account conversations are all earned through behavior, not tier.</p>
+        <p>When AWS invests in a partner, it assigns a team. Each member opens a different door. <strong>Most partners treat every AWS contact the same way</strong> — the fastest path to being quietly deprioritized.</p>
+        <p>Coverage, funding sponsorship, and a seat in strategic account conversations are earned through how you show up — not your tier. Knowing which door each person opens is where it starts.</p>
       </div>
       <div class="team-roles">
         <div class="team-role">
           <div class="role-abbr">PDM</div>
           <div class="role-body">
             <h4>Partner Development Manager</h4>
-            <p>Your primary AWS relationship. Owns tier progression, funding access, co-sell motion, and field introductions. The relationship that unlocks everything else, and the one most partners underuse.</p>
+            <p>Your primary AWS relationship — and the one most partners underuse. Quietly gates tier, funding, and co-sell.</p>
           </div>
         </div>
         <div class="team-role">
           <div class="role-abbr">PSA</div>
           <div class="role-body">
             <h4>Partner Solutions Architect</h4>
-            <p>Your technical counterpart. Validates solution design, supports Well-Architected reviews, and gives you credibility with AWS account SAs in live co-sell situations. Engage them before you need them.</p>
+            <p>Your technical sponsor in the room. The credibility that turns a maybe into a recommendation. Engage them before you need them.</p>
           </div>
         </div>
         <div class="team-role">
           <div class="role-abbr">PES</div>
           <div class="role-body">
             <h4>Partner Enablement Specialist</h4>
-            <p>Drives your training, certification path, and accreditation completions. The fastest path through knowledge requirements for tier progression runs through this relationship, not through the AWS website.</p>
+            <p>The fastest route through certifications and tier requirements — and it does not run through the AWS website.</p>
           </div>
         </div>
         <div class="team-role">
           <div class="role-abbr">Field</div>
           <div class="role-body">
             <h4>Designated field coverage</h4>
-            <p>At Advanced and Premier tier, AWS assigns named account managers and Partner Solutions Architects to specific opportunities. This coverage is earned through consistent pipeline quality and field presence. Tier alone does not unlock it.</p>
+            <p>Named AWS coverage on your live deals. Earned through pipeline quality and presence — tier alone does not unlock it.</p>
           </div>
         </div>
       </div>
@@ -291,38 +302,32 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
       <div class="intel-card">
         <span class="itag">Co-sell · ACE</span>
         <h4>Your first engagement with an AWS account team is your most important one</h4>
-        <p>AWS account teams form a view of a partner in the first one or two interactions. A vague ACE submission, an unprepared first meeting, or an unclear ask compounds quickly. Rebuilding credibility with a field team takes far longer than building it right the first time.</p>
-        <a href="https://aws.amazon.com/partners/co-sell/" target="_blank" class="ilink">AWS co-sell program</a>
+        <p>AWS account teams form their view of you in the first interaction or two. A vague submission or an unprepared meeting costs credibility that takes far longer to rebuild than to earn. The opening matters more than partners think.</p>
       </div>
       <div class="intel-card">
         <span class="itag">Resell · Channel</span>
         <h4>Resell without a demand plan adds friction, not revenue</h4>
-        <p>AWS field teams find resell motions operationally complex. They add billing layers, margin structures, and customer relationships to manage. A resell play without a clear customer segment and a demand generation plan creates friction for account teams without a payoff. Resell works when the partner owns the demand side.</p>
-        <a href="https://aws.amazon.com/blogs/apn/updates-to-aws-channel-programs-to-drive-growth-in-2026/" target="_blank" class="ilink">2026 channel program updates</a>
+        <p>Reselling without owning demand creates friction for AWS field teams and little payoff for you. There's a way to make resell pull revenue instead of adding overhead — and it turns on who owns the demand side.</p>
       </div>
       <div class="intel-card">
         <span class="itag">Funding · Quota</span>
         <h4>Applying certain funding the wrong way can affect an account team's quota</h4>
-        <p>POC credits and certain MAP structures can count against an AWS account team's revenue targets if applied to workloads already committed. This is rarely explained upfront. Account teams become cautious about sponsoring funding requests from partners who do not understand the dynamics, even on legitimate opportunities.</p>
-        <a href="https://aws.amazon.com/partners/funding/" target="_blank" class="ilink">AWS partner funding guide</a>
+        <p>Applied the wrong way, certain funding works against the very account team you need on your side — and no one explains why upfront. Get it wrong and sponsorship dries up, even on good deals. Get it right and it accelerates them.</p>
       </div>
       <div class="intel-card">
         <span class="itag">2026 Programs</span>
         <h4>The New Customer Incentive replaced three programs on January 1 2026</h4>
-        <p>AWS replaced the Partner Originated Discount, Public Sector Discount, and Customer Engagement Incentive: Grow with a single New Customer Incentive at the start of 2026. It also introduced a new Partner Growth Incentive for incremental resale portfolio growth. Partners running on 2024 program logic are working from the wrong map.</p>
-        <a href="https://aws.amazon.com/blogs/apn/updates-to-aws-channel-programs-to-drive-growth-in-2026/" target="_blank" class="ilink">Full 2026 channel program breakdown</a>
+        <p>AWS rewrote its incentive programs for 2026. Partners still operating on last year's logic are working from the wrong map — and leaving money on the table that's now there to claim.</p>
       </div>
       <div class="intel-card">
         <span class="itag">MAP · June 2026</span>
         <h4>MAP now covers GenAI and agentic work and most partners missed the memo</h4>
-        <p>Since January 2026, MAP covers GenAI and agentic features built as part of modernizing existing applications, data, or workloads, not only cloud migrations. Partners told they were not MAP-eligible because they do not do lift-and-shift should revisit that conversation with their PDM using the current program scope.</p>
-        <a href="https://aws.amazon.com/migration-acceleration-program/" target="_blank" class="ilink">MAP program details</a>
+        <p>MAP is no longer only for lift-and-shift migrations. Plenty of partners were told they weren't eligible and never went back. Many now are. That conversation is worth reopening.</p>
       </div>
       <div class="intel-card">
         <span class="itag">ACE Eligibility</span>
         <h4>Without ACE Eligibility, AWS account teams cannot legally send you leads</h4>
-        <p>Eligibility requires 10 validated partner-originated opportunities in a rolling 12-month window plus enrollment in an AWS Differentiation Program. Once achieved, the co-sell motion reverses direction: AWS starts bringing you opportunities. Most partners spend years submitting one-way into ACE without knowing this threshold exists.</p>
-        <a href="https://aws.amazon.com/partners/co-sell/" target="_blank" class="ilink">ACE program overview</a>
+        <p>There's a threshold that flips co-sell from one-way to two-way — the point where AWS starts bringing you opportunities instead of the reverse. Most partners submit into the void for years without knowing it exists. We know exactly where it sits.</p>
       </div>
     </div>
   </div>
@@ -332,7 +337,7 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
   <div class="container">
     <div class="eyebrow">AWS Marketplace</div>
     <h2>Marketplace is a co-sell channel, not a listing page.</h2>
-    <p class="section-lead">Customers with Enterprise Discount Programs and Private Pricing Agreements are actively looking for solutions that draw down their AWS commit. A listing puts you inside that procurement motion. The partners treating Marketplace as a distribution and co-sell channel, not a checkbox, close deals faster with less friction.</p>
+    <p class="section-lead">Buyers with AWS commitments to draw down are actively shopping Marketplace. A listing puts you inside that procurement motion. The partners who treat it as a co-sell channel — not a checkbox — close faster.</p>
     <div class="mp-layout">
       <div class="mp-left">
         <p>CloudZero is a registered AWS Marketplace seller. The profile is live and the foundation is in place. The next step is publishing a listing and activating the co-sell motion that connects Marketplace transactions to ACE pipeline.</p>
@@ -343,35 +348,35 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
             <p>CloudZero Groupe Inc. &nbsp;·&nbsp; <a href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">View seller profile</a></p>
           </div>
         </div>
-        <p style="margin-top:16px">Concurrent Agreements, launched February 2026, removed the single-agreement-per-account constraint that blocked multi-business-unit procurement. <strong>Buyers can now hold multiple active agreements for the same product within one AWS account</strong>, with independent pricing, terms, and billing per agreement. For Professional Services listings this is already enabled by default. For SaaS it requires an integration update, now mandatory for all new products as of June 1 2026.</p>
-        <p>Partner Revenue Measurement, launched April 2026, now integrates directly with Marketplace Metering for AMI and ML products, giving sellers visibility into AWS revenue impact and product consumption patterns without building separate tracking infrastructure.</p>
+        <p style="margin-top:16px">Recent platform changes quietly reshaped what's possible on Marketplace in 2026 — and most sellers haven't caught up. <strong>The mechanics matter, and they aren't obvious.</strong></p>
+        <p>We position the listing, structure the offers, and connect Marketplace transactions back to your co-sell pipeline.</p>
         <div class="mp-stats">
           <div class="mp-stat"><div class="n">330K+</div><div class="l">active Marketplace subscribers</div></div>
           <div class="mp-stat"><div class="n">2M+</div><div class="l">active subscriptions transacting</div></div>
-          <div class="mp-stat"><div class="n">50%</div><div class="l">faster deal closure for pro services sellers</div></div>
-          <div class="mp-stat"><div class="n">June 1</div><div class="l">2026 deadline: Concurrent Agreements required for new SaaS</div></div>
+          
+          
         </div>
       </div>
       <div class="mp-cards">
         <div class="mp-card">
           <span class="mtag">New · February 2026</span>
           <h4>Concurrent Agreements <span class="new-badge">Live</span></h4>
-          <p>Buyers can now purchase the same product multiple times under separate agreements within a single AWS account. Different business units can procure independently with their own negotiated terms. Sellers can close multi-BU deals that previously stalled, transact mid-term expansions without waiting for renewal cycles, and eliminate workaround overhead. Professional Services: enabled by default. SaaS: integration update required.</p>
+          <p>The constraint that used to block multi-business-unit deals is gone. Different units can buy the same product independently — so deals that stalled at procurement can finally close.</p>
         </div>
         <div class="mp-card">
           <span class="mtag">New · April 2026</span>
           <h4>Partner Revenue Measurement via Marketplace Metering <span class="new-badge">Live</span></h4>
-          <p>AWS Marketplace Metering now automatically measures service consumption for AMI and ML products and feeds it directly into Partner Revenue Measurement. Partners get visibility into their AWS revenue impact and product consumption patterns without building separate tracking infrastructure or reconciling data manually.</p>
+          <p>Sellers can now see their real AWS revenue impact and consumption without building tracking infrastructure — visibility you used to have to engineer.</p>
         </div>
         <div class="mp-card">
           <span class="mtag">SIs · Consulting partners</span>
           <h4>Channel Partner Private Offers (CPPO)</h4>
-          <p>Consulting partners create and transact Marketplace private offers on behalf of ISVs at their own pricing and margin. The ISV sets the wholesale price; the partner controls the customer relationship and markup. No separate billing infrastructure required. 3% listing fee standard, 3.5% for CPPO transactions.</p>
+          <p>Consulting partners can transact private offers on behalf of ISVs at their own margin — owning the customer relationship without standing up billing. A channel most SIs underuse.</p>
         </div>
         <div class="mp-card">
           <span class="mtag">GenAI · Agentic AI</span>
           <h4>AI Agents and Tools discovery page</h4>
-          <p>Partners completing the Agentic AI Specialization can publish to the AI Agents and Tools solution page on Marketplace, the destination AWS is directing enterprise customers toward for GenAI solutions built on Bedrock AgentCore, Amazon Q, and Nova Act. Distribution without cold outreach.</p>
+          <p>Finish the Agentic AI Specialization and you can publish where AWS is actively sending enterprise buyers for GenAI. Distribution without cold outreach.</p>
         </div>
       </div>
     </div>
@@ -438,7 +443,7 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
   <div class="container">
     <div class="eyebrow">APN at a glance</div>
     <h2 style="color:var(--white)">Five stages. Each one earns what the last one required.</h2>
-    <p style="font-size:0.91rem;color:rgba(255,255,255,0.44);max-width:580px;line-height:1.82;margin-bottom:28px">The AWS Services Path is the framework for how systems integrators, consultants, and professional services partners build their AWS partnership. Stages are thresholds that gate real field access, funding eligibility, and co-sell depth.</p>
+    <p style="font-size:0.91rem;color:rgba(255,255,255,0.44);max-width:580px;line-height:1.82;margin-bottom:28px">The AWS Services Path is how consulting and services partners build their AWS practice. Five stages, each gating real field access, funding, and co-sell depth. Knowing where you actually stand — and what unlocks the next stage — is half the work.</p>
     <div class="path-stages">
       <div class="ps"><div class="sn">Stage 1</div><div class="sa">Registered</div></div>
       <div class="ps"><div class="sn">Stage 2</div><div class="sa">Enrolled</div></div>
@@ -446,31 +451,21 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
       <div class="ps act"><div class="sn">Stage 4 · Select+</div><div class="sa">Validated</div></div>
       <div class="ps act"><div class="sn">Stage 5 · Competency</div><div class="sa">Differentiated</div></div>
     </div>
-    <div class="qbar">
-      <a class="ql" href="https://partnercentral.awspartner.com" target="_blank">Partner Central</a>
-      <a class="ql" href="https://aws.amazon.com/partners/funding/" target="_blank">Funding Guide</a>
-      <a class="ql" href="https://aws.amazon.com/partners/co-sell/" target="_blank">Co-Sell / ACE</a>
-      <a class="ql" href="https://aws.amazon.com/migration-acceleration-program/" target="_blank">MAP</a>
-      <a class="ql" href="https://aws.amazon.com/partners/competencies/" target="_blank">Competencies</a>
-      <a class="ql" href="https://aws.amazon.com/marketplace/partners/" target="_blank">Marketplace</a>
-      <a class="ql" href="https://aws.amazon.com/ai/generative-ai/partners/" target="_blank">AI Specialization</a>
-      <a class="ql" href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">CloudZero on Marketplace</a>
-    </div>
     <div class="bms-grid">
       <div class="bms-card">
         <div class="bms-label">Build</div>
         <h3>Develop on AWS</h3>
-        <p>Certifications, the Foundational Technical Review, AWS Competencies, and the Agentic AI Specialization categories that give the AWS field the technical confidence to recommend you in a live customer conversation.</p>
+        <p>The certifications, technical reviews, and specializations that give the AWS field the confidence to put you in front of a customer.</p>
       </div>
       <div class="bms-card">
         <div class="bms-label">Market</div>
         <h3>Reach customers with AWS</h3>
-        <p>MDF, Marketing Central, Field Ready Kits, Marketplace listings, and the Partner Solutions Finder. Agentic AI Specialization partners receive up to $5K total MDF in 2026. The Partner Greenfield Program opens multi-year co-investment for Migration, GenAI, and Security.</p>
+        <p>The funding, field kits, and Marketplace presence that put you in front of demand — including the 2026 programs most partners don't realize they qualify for.</p>
       </div>
       <div class="bms-card">
         <div class="bms-label">Sell</div>
         <h3>Co-sell through ACE and Marketplace</h3>
-        <p>ACE pipeline submissions, field relationship building, Marketplace private offers including Concurrent Agreements, CPPO, and the ACE Eligibility threshold that converts you from a partner who brings AWS opportunities to one that receives them.</p>
+        <p>ACE pipeline, field relationships, and Marketplace offers — the motion that turns you from a partner chasing AWS into one AWS brings deals to.</p>
       </div>
     </div>
   </div>
@@ -481,10 +476,13 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
     <div class="eyebrow">Get started</div>
     <h2>Start with a working session.</h2>
     <p>Tell us where you are in your AWS partnership — tier, pipeline status, what is stalling — and we will come prepared with a clear view of the gap and the right starting point. No pitch deck. Just the conversation.</p>
-    <div class="contact-links">
-      <a href="mailto:yasmine@cloudzero.ca" class="cbtn p">Email us directly</a>
-      <a href="#services" class="cbtn">See engagement tiers</a>
-    </div>
+    <form class="contact-form" action="https://formspree.io/f/mbdqborg" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Work email" required>
+      <textarea name="message" placeholder="Where are you in your AWS partnership, and what's stalling?" required></textarea>
+      <button type="submit">Request a working session</button>
+    </form>
+    <a href="#services" class="contact-alt">Or see engagement tiers &rarr;</a>
   </div>
 </section>
 
@@ -492,8 +490,6 @@ footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
   <div class="fl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 40" role="img" aria-label="CloudZero" style="height:22px;width:auto;display:block;color:rgba(255,255,255,0.92)"><g fill="currentColor"><polygon points="4,7 20,1.5 36,7 20,12.5"/><polygon points="4,15 20,9.5 36,15 20,20.5" opacity="0.6"/><polygon points="4,23 20,17.5 36,23 20,28.5" opacity="0.38"/><polygon points="4,31 20,25.5 36,31 20,36.5" opacity="0.22"/></g><text x="50" y="28" font-family="'DM Sans',-apple-system,Segoe UI,sans-serif" font-size="27" letter-spacing="-0.5"><tspan fill="currentColor" font-weight="500">cloud</tspan><tspan fill="#e8822a" font-weight="700">zero</tspan></text></svg></div>
   <div class="fr">
     <a href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">CloudZero on Marketplace</a>
-    &nbsp;·&nbsp;
-    <a href="mailto:yasmine@cloudzero.ca">yasmine@cloudzero.ca</a>
     &nbsp;·&nbsp;
     Not affiliated with Amazon Web Services Inc.
   </div>
