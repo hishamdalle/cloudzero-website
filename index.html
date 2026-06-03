@@ -1,322 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CloudZero | Go-to-Market Engineering for Hyperscalers and Technology Vendors</title>
-  <meta name="description" content="CloudZero is a boutique go-to-market engineering firm. We sit between the hyperscalers and the silicon and technology vendors, turning technical capability into committed revenue.">
-  <link rel="icon" href="images/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=4">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="CloudZero is a methodology-driven AWS Partner Accelerator. We build the practice, the evidence, and the field relationships that turn APN tier, ACE, MAP, MDF, and Marketplace into real co-sell revenue."/>
+<link rel="canonical" href="https://cloudzero.ca/"/>
+<meta name="theme-color" content="#0b1422"/>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="CloudZero · AWS Partner Accelerator"/>
+<meta property="og:description" content="A methodology-driven AWS Partner Accelerator — build the practice, evidence, and field relationships that make the partner multiplier real."/>
+<meta property="og:url" content="https://cloudzero.ca/"/>
+<meta property="og:image" content="https://cloudzero.ca/images/favicon.png"/>
+<meta name="twitter:card" content="summary"/>
+<title>CloudZero · AWS Partner Accelerator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0b1422;--ink:#111827;--mist:#f5f6f4;--bone:#ede9e2;
+--orange:#e8822a;--teal:#0d6e5e;--teal-lt:#e3f4f0;
+--border:#ddd8cf;--muted:#6b7280;--white:#ffffff;
+}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);font-size:16px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:58px}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo-wrap img{height:34px;width:auto;display:block}
+.logo-badge{font-size:0.58rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;background:var(--orange);color:var(--white);padding:2px 8px;border-radius:2px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:0.79rem;color:rgba(255,255,255,0.58);transition:color 0.15s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.82)!important;padding:5px 15px;border-radius:3px}
+.nav-cta:hover{border-color:var(--orange)!important;color:var(--white)!important}
+.ticker-bar{background:var(--bone);border-bottom:1px solid var(--border);padding:0 48px;height:32px;display:flex;align-items:center;gap:12px;overflow:hidden}
+.ticker-label{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--teal);white-space:nowrap;flex-shrink:0}
+.ticker-track{flex:1;overflow:hidden;height:16px}
+.ticker-items{display:flex;white-space:nowrap;animation:tick 50s linear infinite}
+.ticker-items span{font-size:0.74rem;color:var(--muted);padding-right:52px}
+.ticker-items span::before{content:'·  '}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hero{background:var(--navy);padding:80px 48px 70px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-80px;right:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,130,42,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:680px;position:relative}
+.hero-label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--orange);margin-bottom:18px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.6vw,2.85rem);color:var(--white);line-height:1.15;margin-bottom:20px}
+.hero h1 em{color:var(--orange);font-style:italic}
+.hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:560px;line-height:1.82;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:var(--white);padding:10px 22px;border-radius:3px;font-weight:500;font-size:0.87rem;transition:background 0.15s;display:inline-block}
+.btn-primary:hover{background:#d0711e}
+.btn-ghost{font-size:0.81rem;color:rgba(255,255,255,0.48);border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:1px}
+.btn-ghost:hover{color:var(--white)}
+.hero-stats{display:flex;gap:32px;margin-top:46px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.07)}
+.h-stat .num{font-family:'DM Serif Display',serif;font-size:1.65rem;color:var(--white)}
+.h-stat .lbl{font-size:0.72rem;color:rgba(255,255,255,0.36);margin-top:2px;max-width:130px;line-height:1.4}
+.section{padding:62px 48px}
+.section-alt{background:var(--mist)}
+.container{max-width:1020px;margin:0 auto}
+.eyebrow{font-size:0.67rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--orange);margin-bottom:10px}
+h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.3vw,1.95rem);color:var(--ink);line-height:1.2;margin-bottom:12px}
+.section-lead{font-size:0.92rem;color:var(--muted);max-width:580px;line-height:1.82;margin-bottom:40px}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.process-step{padding:28px 24px;background:var(--white)}
+.process-step+.process-step{border-left:1px solid var(--border)}
+.step-num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--bone);line-height:1;margin-bottom:12px}
+.step-title{font-weight:500;font-size:0.95rem;color:var(--ink);margin-bottom:8px}
+.step-body{font-size:0.835rem;color:var(--muted);line-height:1.75}
+.step-tag{display:inline-block;margin-top:12px;font-size:0.63rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;background:var(--teal-lt);color:var(--teal);padding:2px 7px;border-radius:2px}
+.aws-team-block{background:var(--bone);border-radius:6px;padding:32px 36px;margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.aws-team-left h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:11px}
+.aws-team-left p{font-size:0.855rem;color:var(--muted);line-height:1.78;margin-bottom:10px}
+.aws-team-left p strong{color:var(--ink)}
+.team-roles{display:flex;flex-direction:column;gap:9px}
+.team-role{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:11px 15px;display:flex;gap:12px;align-items:flex-start}
+.role-abbr{font-size:0.62rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--orange);white-space:nowrap;padding-top:2px;min-width:34px}
+.role-body h4{font-size:0.84rem;font-weight:500;color:var(--ink);margin-bottom:2px}
+.role-body p{font-size:0.77rem;color:var(--muted);line-height:1.55}
+.intel-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.intel-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:22px 20px;position:relative;overflow:hidden}
+.intel-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--orange)}
+.intel-card h4{font-weight:500;font-size:0.91rem;color:var(--ink);margin-bottom:6px}
+.intel-card p{font-size:0.825rem;color:var(--muted);line-height:1.7}
+.itag{font-size:0.62rem;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:8px;display:block}
+.ilink{font-size:0.77rem;color:var(--teal);margin-top:9px;display:inline-block;border-bottom:1px solid var(--teal-lt);padding-bottom:1px}
+.mp-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:start}
+.mp-left p{font-size:0.89rem;color:var(--muted);line-height:1.82;margin-bottom:13px}
+.mp-left p strong{color:var(--ink)}
+.mp-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.mp-stat{background:var(--bone);border-radius:5px;padding:14px 16px}
+.mp-stat .n{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--ink)}
+.mp-stat .l{font-size:0.73rem;color:var(--muted);margin-top:2px;line-height:1.4}
+.mp-seller-badge{background:var(--teal-lt);border:1px solid rgba(13,110,94,0.2);border-radius:5px;padding:14px 16px;margin-top:12px;display:flex;align-items:center;gap:10px}
+.mp-seller-badge .badge-icon{font-size:1.1rem}
+.mp-seller-badge-text h4{font-size:0.84rem;font-weight:500;color:var(--teal);margin-bottom:2px}
+.mp-seller-badge-text p{font-size:0.76rem;color:var(--muted);line-height:1.5}
+.mp-seller-badge-text a{color:var(--teal);border-bottom:1px solid var(--teal-lt);font-size:0.76rem}
+.mp-cards{display:flex;flex-direction:column;gap:11px}
+.mp-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:18px 18px}
+.mp-card h4{font-weight:500;font-size:0.89rem;color:var(--ink);margin-bottom:5px}
+.mp-card p{font-size:0.81rem;color:var(--muted);line-height:1.67}
+.mtag{font-size:0.61rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;color:var(--teal);margin-bottom:6px;display:block}
+.new-badge{display:inline-block;background:#fff3e0;border:1px solid #f5a623;color:#c65d00;font-size:0.58rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:middle}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-card{border:1px solid var(--border);border-radius:6px;padding:24px 20px;background:var(--white);display:flex;flex-direction:column}
+.svc-card.featured{border-color:var(--orange);position:relative}
+.svc-pill{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-size:0.6rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:2px 11px;border-radius:20px;white-space:nowrap}
+.svc-tier{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;color:var(--muted);margin-bottom:8px}
+.svc-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);margin-bottom:11px}
+.svc-desc{font-size:0.825rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:16px}
+.svc-list{list-style:none;margin-bottom:18px;display:flex;flex-direction:column;gap:5px}
+.svc-list li{font-size:0.79rem;color:var(--muted);padding-left:12px;position:relative;line-height:1.5}
+.svc-list li::before{content:'→';position:absolute;left:0;color:var(--orange);font-size:0.72rem}
+.svc-cta{font-size:0.79rem;color:var(--teal);font-weight:500;border-bottom:1px solid var(--teal-lt);padding-bottom:1px;display:inline-block}
+.mdf-badge{display:inline-flex;align-items:center;gap:4px;background:var(--teal-lt);color:var(--teal);font-size:0.63rem;letter-spacing:0.5px;font-weight:500;padding:2px 7px;border-radius:2px;margin-top:9px}
+.res-section{background:var(--navy);padding:62px 48px}
+.res-section .eyebrow{color:var(--orange)}
+.path-stages{display:flex;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;margin-bottom:28px}
+.ps{flex:1;padding:14px 11px;text-align:center;border-right:1px solid rgba(255,255,255,0.05)}
+.ps:last-child{border-right:none}
+.ps .sn{font-size:0.61rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.26);margin-bottom:4px}
+.ps .sa{font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.52)}
+.ps.act .sn{color:var(--orange)}
+.ps.act .sa{color:var(--white)}
+.qbar{background:#141f32;height:34px;display:flex;align-items:center;gap:5px;border-radius:4px;padding:0 12px;margin-bottom:28px;overflow-x:auto}
+.ql{display:inline-flex;align-items:center;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.58);font-size:0.72rem;padding:3px 10px;border-radius:2px;flex-shrink:0;transition:all 0.15s}
+.ql:hover{background:rgba(232,130,42,0.1);border-color:var(--orange);color:var(--white)}
+.bms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bms-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:22px 18px}
+.bms-label{font-size:0.63rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:6px}
+.bms-card h3{font-size:0.91rem;font-weight:500;color:var(--white);margin-bottom:7px}
+.bms-card p{font-size:0.79rem;color:rgba(255,255,255,0.4);line-height:1.7}
+.contact-section{background:var(--ink);padding:62px 48px}
+.contact-inner{max-width:580px;margin:0 auto;text-align:center}
+.contact-section h2{color:var(--white);margin-bottom:12px}
+.contact-section p{color:rgba(255,255,255,0.44);font-size:0.88rem;line-height:1.82;margin-bottom:26px}
+.contact-section .eyebrow{color:var(--orange)}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cbtn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.13);color:rgba(255,255,255,0.76);padding:10px 24px;border-radius:3px;font-size:0.85rem;font-weight:500;transition:all 0.15s;text-decoration:none;display:inline-block}
+.cbtn:hover{border-color:var(--orange);color:var(--white)}
+.cbtn.p{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.cbtn.p:hover{background:#d0711e}
+footer{background:var(--navy);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.05)}
+.fl img{height:22px;width:auto;opacity:0.35}
+.fr{font-size:0.74rem;color:rgba(255,255,255,0.2)}
+.fr a{color:rgba(255,255,255,0.26);transition:color 0.15s}
+.fr a:hover{color:var(--orange)}
+@media(max-width:860px){
+nav{padding:0 20px}.nav-links{display:none}
+.hero,.section,.res-section,.contact-section{padding:50px 20px}
+.process-grid,.bms-grid,.services-grid,.intel-grid,.mp-layout,.aws-team-block{grid-template-columns:1fr}
+.process-step+.process-step{border-left:none;border-top:1px solid var(--border)}
+.path-stages{flex-wrap:wrap}.hero-stats{flex-wrap:wrap;gap:20px}
+footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="logo"><img src="images/logo.png" alt="CloudZero"></a>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <ul id="nav-menu">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#methodology">Methodology</a></li>
-      <li><a href="#agentic">Agentic AI</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 40" role="img" aria-label="CloudZero" style="height:34px;width:auto;display:block;color:#fff"><g fill="currentColor"><polygon points="4,7 20,1.5 36,7 20,12.5"/><polygon points="4,15 20,9.5 36,15 20,20.5" opacity="0.6"/><polygon points="4,23 20,17.5 36,23 20,28.5" opacity="0.38"/><polygon points="4,31 20,25.5 36,31 20,36.5" opacity="0.22"/></g><text x="50" y="28" font-family="'DM Sans',-apple-system,Segoe UI,sans-serif" font-size="27" letter-spacing="-0.5"><tspan fill="currentColor" font-weight="500">cloud</tspan><tspan fill="#e8822a" font-weight="700">zero</tspan></text></svg>
+    <div class="logo-badge">Partner Accelerator</div>
+  </div>
+  <div class="nav-links">
+    <a href="#methodology">Methodology</a>
+    <a href="#intel">Intel</a>
+    <a href="#marketplace">Marketplace</a>
+    <a href="#services">Services</a>
+    <a href="#apn">APN Resources</a>
+    <a href="#contact" class="nav-cta">Talk to us</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">Minority-Owned</div>
-    <h1>Your GTM engine.<br><em>AI-accelerated.</em></h1>
-    <p>CloudZero builds go-to-market machines for hyperscalers, silicon vendors, and technology companies. We start from the customer question, work backwards to true differentiation, and deliver at a speed traditional consulting cannot match. AI runs through everything we do.</p>
-    <a href="#contact" class="btn">Start a Conversation</a>
-  </section>
-
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="num">10X</div>
-      <div class="desc">Faster Delivery</div>
-    </div>
-    <div class="stat">
-      <div class="num">20X</div>
-      <div class="desc">Urgent Requests</div>
-    </div>
-    <div class="stat">
-      <div class="num">24/7</div>
-      <div class="desc">Availability Charter</div>
-    </div>
-    <div class="stat">
-      <div class="num">&infin;</div>
-      <div class="desc">Persistent Memory</div>
+<div class="ticker-bar">
+  <span class="ticker-label">June 2026</span>
+  <div class="ticker-track">
+    <div class="ticker-items">
+      <span>Concurrent Agreements now live: buyers can hold multiple active agreements per product per account — required for new SaaS products as of June 1 2026</span>
+      <span>Partner Revenue Measurement now integrates with Marketplace Metering for AMI and ML products — launched April 3 2026</span>
+      <span>New Customer Incentive replaced Partner Originated Discount and Customer Engagement Incentive as of January 1 2026</span>
+      <span>MAP now covers GenAI and agentic modernization, not only migrations — expanded January 2026</span>
+      <span>Seller Reporting now shows collections visibility for all AWS sellers — launched January 6 2026</span>
+      <span>Express private offers live: automated custom pricing based on partner-defined terms</span>
+      <span>Agentic AI Specialization: 3 new categories added in 2026 with up to $5K total MDF for qualifying partners</span>
+      <span>Small Business Acceleration Initiative now global across all AWS regions</span>
+      <span>Digital Sovereignty Module added to AWS Partner Transformation Program for public sector partners</span>
+      <span>Concurrent Agreements now live: buyers can hold multiple active agreements per product per account — required for new SaaS products as of June 1 2026</span>
+      <span>Partner Revenue Measurement now integrates with Marketplace Metering for AMI and ML products — launched April 3 2026</span>
+      <span>New Customer Incentive replaced Partner Originated Discount and Customer Engagement Incentive as of January 1 2026</span>
+      <span>MAP now covers GenAI and agentic modernization, not only migrations — expanded January 2026</span>
+      <span>Seller Reporting now shows collections visibility for all AWS sellers — launched January 6 2026</span>
+      <span>Express private offers live: automated custom pricing based on partner-defined terms</span>
+      <span>Agentic AI Specialization: 3 new categories added in 2026 with up to $5K total MDF for qualifying partners</span>
+      <span>Small Business Acceleration Initiative now global across all AWS regions</span>
+      <span>Digital Sovereignty Module added to AWS Partner Transformation Program for public sector partners</span>
     </div>
   </div>
+</div>
 
-  <!-- IDENTITY -->
-  <div class="identity-bar">
-    <h3>Built Different From Day One</h3>
-    <p>CloudZero started in tokenization and digital identity, where speed, regulatory complexity, and differentiation determine survival. That intensity now powers GTM strategy for companies across cloud, security, AI, and enterprise software. We are a minority-owned firm. We don't log off when you log off. We stay alert and working.</p>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">CloudZero &nbsp;·&nbsp; AWS Partner Accelerator</div>
+    <h1>Partner profitability starts with <em>owning your edge.</em></h1>
+    <p class="hero-sub">Omdia puts the AWS partner multiplier at $6 in services revenue for every $1 of AWS technology sold. That number is not automatic. It is earned by partners who show up with upfront value, a clear point of view on the customer problem they solve, and the consistency to hold a high bar. CloudZero is a methodology-driven accelerator that builds the practice, the evidence, and the field relationships that make the multiplier real.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a working session</a>
+      <a href="#methodology" class="btn-ghost">See the methodology</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="num">$6</div><div class="lbl">services revenue per $1 of AWS sold. Omdia 2026</div></div>
+      <div class="h-stat"><div class="num">51%</div><div class="lbl">higher revenue for active co-selling partners</div></div>
+      <div class="h-stat"><div class="num">MDF</div><div class="lbl">eligible. Use your program funds to engage us</div></div>
+    </div>
   </div>
+</section>
 
-  <!-- SERVICES -->
-  <div class="section" id="services">
-    <div class="section-label">What We Deliver</div>
-    <h2>Services</h2>
-    <div class="intro">Every engagement produces tangible deliverables. Not decks that sit in a folder. Functioning GTM motions that generate pipeline, convert opportunities, and build market position.</div>
+<section class="section" id="methodology">
+  <div class="container">
+    <div class="eyebrow">The CloudZero methodology</div>
+    <h2>A program is a methodology, not a checklist.</h2>
+    <p class="section-lead">Most partners focus on unlocking MAP, MDF, or ACE Eligibility as if the credential is the goal. The credential is the outcome of the work. What earns it is building a consistent practice, generating qualified evidence, and developing field relationships that AWS account teams actually rely on. CloudZero runs that process with you in the right sequence.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Working backwards assessment</div>
+        <div class="step-body">We start where you are. Your tier, your ACE pipeline, your certifications, your active funding, and your Marketplace posture mapped against your next real milestone. The gap is specific. The sequence of what to address first is the deliverable.</div>
+        <div class="step-tag">Working backwards session</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Sequenced plan of action</div>
+        <div class="step-body">The order of operations matters more than the effort. Paying the APN fee before certifications stalls progress. Submitting ACE before building field relationships produces silence. The plan tells you what to do and what to do first so each step creates the conditions for the next.</div>
+        <div class="step-tag">90-day roadmap</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Execution alongside you</div>
+        <div class="step-body">We write the ACE submissions, the funding proposals, the field-ready collateral, and the Marketplace strategy. We prep PDM meetings and coach field conversations. You get experienced alliances output without building a team to produce it.</div>
+        <div class="step-tag">Done-with-you delivery</div>
+      </div>
+    </div>
 
+    <div class="aws-team-block">
+      <div class="aws-team-left">
+        <h3>What AWS assigns to a partner and what it means</h3>
+        <p>When AWS invests in a partner it assigns a team. Knowing who does what determines how you show up. <strong>Most partners treat every AWS contact the same way.</strong> That is the fastest path to being deprioritized.</p>
+        <p>AWS invests field time and co-sell energy in partners who arrive prepared, bring qualified pipeline, and hold a consistent point of view on a specific customer problem. Designated coverage, field sponsorship for funding, and inclusion in strategic account conversations are all earned through behavior, not tier.</p>
+      </div>
+      <div class="team-roles">
+        <div class="team-role">
+          <div class="role-abbr">PDM</div>
+          <div class="role-body">
+            <h4>Partner Development Manager</h4>
+            <p>Your primary AWS relationship. Owns tier progression, funding access, co-sell motion, and field introductions. The relationship that unlocks everything else, and the one most partners underuse.</p>
+          </div>
+        </div>
+        <div class="team-role">
+          <div class="role-abbr">PSA</div>
+          <div class="role-body">
+            <h4>Partner Solutions Architect</h4>
+            <p>Your technical counterpart. Validates solution design, supports Well-Architected reviews, and gives you credibility with AWS account SAs in live co-sell situations. Engage them before you need them.</p>
+          </div>
+        </div>
+        <div class="team-role">
+          <div class="role-abbr">PES</div>
+          <div class="role-body">
+            <h4>Partner Enablement Specialist</h4>
+            <p>Drives your training, certification path, and accreditation completions. The fastest path through knowledge requirements for tier progression runs through this relationship, not through the AWS website.</p>
+          </div>
+        </div>
+        <div class="team-role">
+          <div class="role-abbr">Field</div>
+          <div class="role-body">
+            <h4>Designated field coverage</h4>
+            <p>At Advanced and Premier tier, AWS assigns named account managers and Partner Solutions Architects to specific opportunities. This coverage is earned through consistent pipeline quality and field presence. Tier alone does not unlock it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="intel">
+  <div class="container">
+    <div class="eyebrow">What AWS will not tell you</div>
+    <h2>The things that matter and are never documented.</h2>
+    <p class="section-lead">Patterns observed from inside the AWS partner development function, across hundreds of partner conversations, co-sell cycles, and program applications.</p>
+    <div class="intel-grid">
+      <div class="intel-card">
+        <span class="itag">Co-sell · ACE</span>
+        <h4>Your first engagement with an AWS account team is your most important one</h4>
+        <p>AWS account teams form a view of a partner in the first one or two interactions. A vague ACE submission, an unprepared first meeting, or an unclear ask compounds quickly. Rebuilding credibility with a field team takes far longer than building it right the first time.</p>
+        <a href="https://aws.amazon.com/partners/co-sell/" target="_blank" class="ilink">AWS co-sell program</a>
+      </div>
+      <div class="intel-card">
+        <span class="itag">Resell · Channel</span>
+        <h4>Resell without a demand plan adds friction, not revenue</h4>
+        <p>AWS field teams find resell motions operationally complex. They add billing layers, margin structures, and customer relationships to manage. A resell play without a clear customer segment and a demand generation plan creates friction for account teams without a payoff. Resell works when the partner owns the demand side.</p>
+        <a href="https://aws.amazon.com/blogs/apn/updates-to-aws-channel-programs-to-drive-growth-in-2026/" target="_blank" class="ilink">2026 channel program updates</a>
+      </div>
+      <div class="intel-card">
+        <span class="itag">Funding · Quota</span>
+        <h4>Applying certain funding the wrong way can affect an account team's quota</h4>
+        <p>POC credits and certain MAP structures can count against an AWS account team's revenue targets if applied to workloads already committed. This is rarely explained upfront. Account teams become cautious about sponsoring funding requests from partners who do not understand the dynamics, even on legitimate opportunities.</p>
+        <a href="https://aws.amazon.com/partners/funding/" target="_blank" class="ilink">AWS partner funding guide</a>
+      </div>
+      <div class="intel-card">
+        <span class="itag">2026 Programs</span>
+        <h4>The New Customer Incentive replaced three programs on January 1 2026</h4>
+        <p>AWS replaced the Partner Originated Discount, Public Sector Discount, and Customer Engagement Incentive: Grow with a single New Customer Incentive at the start of 2026. It also introduced a new Partner Growth Incentive for incremental resale portfolio growth. Partners running on 2024 program logic are working from the wrong map.</p>
+        <a href="https://aws.amazon.com/blogs/apn/updates-to-aws-channel-programs-to-drive-growth-in-2026/" target="_blank" class="ilink">Full 2026 channel program breakdown</a>
+      </div>
+      <div class="intel-card">
+        <span class="itag">MAP · June 2026</span>
+        <h4>MAP now covers GenAI and agentic work and most partners missed the memo</h4>
+        <p>Since January 2026, MAP covers GenAI and agentic features built as part of modernizing existing applications, data, or workloads, not only cloud migrations. Partners told they were not MAP-eligible because they do not do lift-and-shift should revisit that conversation with their PDM using the current program scope.</p>
+        <a href="https://aws.amazon.com/migration-acceleration-program/" target="_blank" class="ilink">MAP program details</a>
+      </div>
+      <div class="intel-card">
+        <span class="itag">ACE Eligibility</span>
+        <h4>Without ACE Eligibility, AWS account teams cannot legally send you leads</h4>
+        <p>Eligibility requires 10 validated partner-originated opportunities in a rolling 12-month window plus enrollment in an AWS Differentiation Program. Once achieved, the co-sell motion reverses direction: AWS starts bringing you opportunities. Most partners spend years submitting one-way into ACE without knowing this threshold exists.</p>
+        <a href="https://aws.amazon.com/partners/co-sell/" target="_blank" class="ilink">ACE program overview</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="marketplace">
+  <div class="container">
+    <div class="eyebrow">AWS Marketplace</div>
+    <h2>Marketplace is a co-sell channel, not a listing page.</h2>
+    <p class="section-lead">Customers with Enterprise Discount Programs and Private Pricing Agreements are actively looking for solutions that draw down their AWS commit. A listing puts you inside that procurement motion. The partners treating Marketplace as a distribution and co-sell channel, not a checkbox, close deals faster with less friction.</p>
+    <div class="mp-layout">
+      <div class="mp-left">
+        <p>CloudZero is a registered AWS Marketplace seller. The profile is live and the foundation is in place. The next step is publishing a listing and activating the co-sell motion that connects Marketplace transactions to ACE pipeline.</p>
+        <div class="mp-seller-badge">
+          <div class="badge-icon">✓</div>
+          <div class="mp-seller-badge-text">
+            <h4>Registered AWS Marketplace Seller</h4>
+            <p>CloudZero Groupe Inc. &nbsp;·&nbsp; <a href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">View seller profile</a></p>
+          </div>
+        </div>
+        <p style="margin-top:16px">Concurrent Agreements, launched February 2026, removed the single-agreement-per-account constraint that blocked multi-business-unit procurement. <strong>Buyers can now hold multiple active agreements for the same product within one AWS account</strong>, with independent pricing, terms, and billing per agreement. For Professional Services listings this is already enabled by default. For SaaS it requires an integration update, now mandatory for all new products as of June 1 2026.</p>
+        <p>Partner Revenue Measurement, launched April 2026, now integrates directly with Marketplace Metering for AMI and ML products, giving sellers visibility into AWS revenue impact and product consumption patterns without building separate tracking infrastructure.</p>
+        <div class="mp-stats">
+          <div class="mp-stat"><div class="n">330K+</div><div class="l">active Marketplace subscribers</div></div>
+          <div class="mp-stat"><div class="n">2M+</div><div class="l">active subscriptions transacting</div></div>
+          <div class="mp-stat"><div class="n">50%</div><div class="l">faster deal closure for pro services sellers</div></div>
+          <div class="mp-stat"><div class="n">June 1</div><div class="l">2026 deadline: Concurrent Agreements required for new SaaS</div></div>
+        </div>
+      </div>
+      <div class="mp-cards">
+        <div class="mp-card">
+          <span class="mtag">New · February 2026</span>
+          <h4>Concurrent Agreements <span class="new-badge">Live</span></h4>
+          <p>Buyers can now purchase the same product multiple times under separate agreements within a single AWS account. Different business units can procure independently with their own negotiated terms. Sellers can close multi-BU deals that previously stalled, transact mid-term expansions without waiting for renewal cycles, and eliminate workaround overhead. Professional Services: enabled by default. SaaS: integration update required.</p>
+        </div>
+        <div class="mp-card">
+          <span class="mtag">New · April 2026</span>
+          <h4>Partner Revenue Measurement via Marketplace Metering <span class="new-badge">Live</span></h4>
+          <p>AWS Marketplace Metering now automatically measures service consumption for AMI and ML products and feeds it directly into Partner Revenue Measurement. Partners get visibility into their AWS revenue impact and product consumption patterns without building separate tracking infrastructure or reconciling data manually.</p>
+        </div>
+        <div class="mp-card">
+          <span class="mtag">SIs · Consulting partners</span>
+          <h4>Channel Partner Private Offers (CPPO)</h4>
+          <p>Consulting partners create and transact Marketplace private offers on behalf of ISVs at their own pricing and margin. The ISV sets the wholesale price; the partner controls the customer relationship and markup. No separate billing infrastructure required. 3% listing fee standard, 3.5% for CPPO transactions.</p>
+        </div>
+        <div class="mp-card">
+          <span class="mtag">GenAI · Agentic AI</span>
+          <h4>AI Agents and Tools discovery page</h4>
+          <p>Partners completing the Agentic AI Specialization can publish to the AI Agents and Tools solution page on Marketplace, the destination AWS is directing enterprise customers toward for GenAI solutions built on Bedrock AgentCore, Amazon Q, and Nova Act. Distribution without cold outreach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="eyebrow">Engagement tiers</div>
+    <h2>The right level of support for where you are.</h2>
+    <p class="section-lead">You do not need a team of five to run a high-performing AWS partnership. You need the right expertise at the right moment working in the right sequence. All tiers are MDF-eligible: your AWS program funds can be applied to this engagement.</p>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>GTM Strategy Build</h3>
-        <p>Define where you stand in the market, who your ideal customer actually looks like, and what makes you different from the buyer's perspective.</p>
-        <ul>
-          <li>ICP definition and validation</li>
-          <li>Competitive landscape analysis</li>
-          <li>Working Backwards press release</li>
-          <li>Market positioning narrative</li>
+      <div class="svc-card">
+        <div class="svc-tier">Foundation</div>
+        <div class="svc-name">Assessment and Plan</div>
+        <p class="svc-desc">A working backwards session that maps where you are against where you need to be, with a sequenced 90-day plan and the right order of operations. The foundation everything else is built on.</p>
+        <ul class="svc-list">
+          <li>2-hour working backwards session</li>
+          <li>Tier gap and ACE pipeline analysis</li>
+          <li>Funding eligibility review: MAP, MDF, MPOPP</li>
+          <li>Sequenced 90-day roadmap with clear owners</li>
+          <li>One debrief and prioritization session</li>
         </ul>
+        <a href="#contact" class="svc-cta">Start here</a>
+        <div class="mdf-badge">MDF eligible</div>
       </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Hyperscaler GTM Enablement</h3>
-        <p>Navigate hyperscaler programs, activate co-sell motions, and build go-to-market strategies that convert pipeline.</p>
-        <ul>
-          <li>Hyperscaler program alignment</li>
-          <li>Co-sell activation and ACE registration</li>
-          <li>Go-to-market strategy</li>
-          <li>Funding and incentive navigation</li>
+      <div class="svc-card featured">
+        <div class="svc-pill">Most chosen</div>
+        <div class="svc-tier">Accelerate</div>
+        <div class="svc-name">Plan and Execution</div>
+        <p class="svc-desc">Everything in Foundation plus hands-on delivery of the ACE submissions, funding proposals, co-sell materials, and Marketplace readiness. For partners who know what they need and want it done well.</p>
+        <ul class="svc-list">
+          <li>Full Foundation deliverables</li>
+          <li>ACE opportunity submissions, written and filed</li>
+          <li>MDF or MAP funding proposal, structured and submitted</li>
+          <li>Field Ready Kit: Sales Brief and Solutions Brief</li>
+          <li>Marketplace listing strategy and readiness review</li>
+          <li>Bi-weekly working sessions for 90 days</li>
+          <li>PDM meeting prep and field coaching</li>
         </ul>
+        <a href="#contact" class="svc-cta">Talk to us</a>
+        <div class="mdf-badge">MDF eligible</div>
       </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Pipeline Operations &amp; Sales Hygiene</h3>
-        <p>Build pipeline discipline that compounds. Qualification rigor, conversion tracking, and reporting that tells the truth.</p>
-        <ul>
-          <li>MEDDPICC qualification framework</li>
-          <li>Pipeline hygiene and management</li>
-          <li>Conversion tracking</li>
-          <li>Bi-weekly and monthly reporting</li>
+      <div class="svc-card">
+        <div class="svc-tier">Embedded</div>
+        <div class="svc-name">Ongoing Partner Management</div>
+        <p class="svc-desc">An experienced alliances function without the headcount. Ongoing ACE management, QBR prep, pipeline hygiene, funding lifecycle tracking, and Marketplace co-sell support, continuously.</p>
+        <ul class="svc-list">
+          <li>Monthly alliances QBR and partner reporting</li>
+          <li>Ongoing ACE pipeline management and hygiene</li>
+          <li>Funding lifecycle: MAP, MDF, MPOPP, WMP</li>
+          <li>Competency and AI Specialization planning</li>
+          <li>Marketplace private offer and CPPO support</li>
+          <li>Field relationship management</li>
         </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Sales Training</h3>
-        <p>Train your field to qualify harder, position sharper, and close with discipline. Not theory. Applied methodology your team uses the next day.</p>
-        <ul>
-          <li>MEDDPICC coaching</li>
-          <li>Sales readiness programs</li>
-          <li>Field enablement programs</li>
-          <li>Qualification rigor workshops</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Content &amp; Narrative</h3>
-        <p>Executive briefs, MBRs, sales plays, and event strategy. Written in the language your buyers and stakeholders actually use.</p>
-        <ul>
-          <li>Executive briefs and MBRs</li>
-          <li>Sales plays and battle cards</li>
-          <li>Event strategy and activation</li>
-          <li>Field enablement materials</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Migration &amp; Modernization Business Cases</h3>
-        <p>Build the business case that unlocks hyperscaler programs. Quantified ROI, customer-facing justification, and program-aligned documentation.</p>
-        <ul>
-          <li>MAP and modernization program alignment</li>
-          <li>Quantified ROI development</li>
-          <li>Customer-facing justification docs</li>
-          <li>Program funding support</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Product &amp; Launch Strategy</h3>
-        <p>Speed over perfection. Build feedback loops, prioritize ruthlessly, and get to market before the window closes.</p>
-        <ul>
-          <li>Prioritization frameworks</li>
-          <li>Speed-to-market execution</li>
-          <li>Feedback loop design</li>
-          <li>Launch readiness assessment</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>Propensity Data Partnerships</h3>
-        <p>CloudZero brings innovative partnerships with companies that deliver propensity data. Know where demand exists before the pipeline does.</p>
-        <ul>
-          <li>Demand signal identification</li>
-          <li>Propensity data integration</li>
-          <li>Account prioritization</li>
-          <li>Market opportunity mapping</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="icon">&mdash;</div>
-        <h3>GTM as a Service</h3>
-        <p>The full go-to-market capability delivered to your business. Strategy, co-sell, pipeline, positioning, event activation, and reporting. Without the headcount.</p>
-        <ul>
-          <li>Full GTM execution</li>
-          <li>Hyperscaler program management</li>
-          <li>Vendor engagement and activation</li>
-          <li>Ongoing strategic advisory</li>
-        </ul>
+        <a href="#contact" class="svc-cta">Let's discuss</a>
+        <div class="mdf-badge">MDF eligible</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- AGENTIC AI -->
-  <div class="section" id="agentic">
-    <div class="section-label">The CloudZero Advantage</div>
-    <h2>Agentic AI, Embedded in Everything</h2>
-    <div class="intro">AI at CloudZero does not sit in a separate workstream. It runs through every deliverable, every analysis, every engagement. The longer we work together, the smarter the system gets. Every conversation compounds.</div>
-
-    <div class="agentic-box">
-      <h3>Your GTM Agent Never Forgets</h3>
-      <p>CloudZero deploys agentic AI with persistent long-term memory across every engagement. The agent retains your market context, your competitive landscape, your ecosystem, your writing preferences, your pipeline history. It learns your business and compounds that knowledge over time. The result: every interaction produces faster, sharper, more contextual output than the last.</p>
-
-      <div class="agentic-features">
-        <div class="agentic-feat">
-          <h4>Persistent Memory</h4>
-          <p>Every conversation, every deliverable, every learning carries forward. No re-onboarding. No context loss. The agent remembers what matters.</p>
-        </div>
-        <div class="agentic-feat">
-          <h4>24/7 Operations</h4>
-          <p>CloudZero does not log off when you log off. The agent monitors, researches, and generates insights around the clock. Work continues while you sleep.</p>
-        </div>
-        <div class="agentic-feat">
-          <h4>10X Standard, 20X Urgent</h4>
-          <p>AI-accelerated delivery produces executive briefs in hours, pipeline analyses in minutes, GTM strategies in days. Not weeks. Not months.</p>
-        </div>
-        <div class="agentic-feat">
-          <h4>Compounding Intelligence</h4>
-          <p>The agent gets smarter the longer you work together. It learns your ICP, your competitive positioning, your sales methodology, your stakeholder language. Every engagement builds on the last.</p>
-        </div>
+<section class="res-section" id="apn">
+  <div class="container">
+    <div class="eyebrow">APN at a glance</div>
+    <h2 style="color:var(--white)">Five stages. Each one earns what the last one required.</h2>
+    <p style="font-size:0.91rem;color:rgba(255,255,255,0.44);max-width:580px;line-height:1.82;margin-bottom:28px">The AWS Services Path is the framework for how systems integrators, consultants, and professional services partners build their AWS partnership. Stages are thresholds that gate real field access, funding eligibility, and co-sell depth.</p>
+    <div class="path-stages">
+      <div class="ps"><div class="sn">Stage 1</div><div class="sa">Registered</div></div>
+      <div class="ps"><div class="sn">Stage 2</div><div class="sa">Enrolled</div></div>
+      <div class="ps act"><div class="sn">Stage 3 · APN fee</div><div class="sa">Confirmed</div></div>
+      <div class="ps act"><div class="sn">Stage 4 · Select+</div><div class="sa">Validated</div></div>
+      <div class="ps act"><div class="sn">Stage 5 · Competency</div><div class="sa">Differentiated</div></div>
+    </div>
+    <div class="qbar">
+      <a class="ql" href="https://partnercentral.awspartner.com" target="_blank">Partner Central</a>
+      <a class="ql" href="https://aws.amazon.com/partners/funding/" target="_blank">Funding Guide</a>
+      <a class="ql" href="https://aws.amazon.com/partners/co-sell/" target="_blank">Co-Sell / ACE</a>
+      <a class="ql" href="https://aws.amazon.com/migration-acceleration-program/" target="_blank">MAP</a>
+      <a class="ql" href="https://aws.amazon.com/partners/competencies/" target="_blank">Competencies</a>
+      <a class="ql" href="https://aws.amazon.com/marketplace/partners/" target="_blank">Marketplace</a>
+      <a class="ql" href="https://aws.amazon.com/ai/generative-ai/partners/" target="_blank">AI Specialization</a>
+      <a class="ql" href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">CloudZero on Marketplace</a>
+    </div>
+    <div class="bms-grid">
+      <div class="bms-card">
+        <div class="bms-label">Build</div>
+        <h3>Develop on AWS</h3>
+        <p>Certifications, the Foundational Technical Review, AWS Competencies, and the Agentic AI Specialization categories that give the AWS field the technical confidence to recommend you in a live customer conversation.</p>
+      </div>
+      <div class="bms-card">
+        <div class="bms-label">Market</div>
+        <h3>Reach customers with AWS</h3>
+        <p>MDF, Marketing Central, Field Ready Kits, Marketplace listings, and the Partner Solutions Finder. Agentic AI Specialization partners receive up to $5K total MDF in 2026. The Partner Greenfield Program opens multi-year co-investment for Migration, GenAI, and Security.</p>
+      </div>
+      <div class="bms-card">
+        <div class="bms-label">Sell</div>
+        <h3>Co-sell through ACE and Marketplace</h3>
+        <p>ACE pipeline submissions, field relationship building, Marketplace private offers including Concurrent Agreements, CPPO, and the ACE Eligibility threshold that converts you from a partner who brings AWS opportunities to one that receives them.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- METHODOLOGY -->
-  <div class="section" id="methodology">
-    <div class="section-label">How We Work</div>
-    <h2>Methodology</h2>
-    <div class="intro">CloudZero operates at the intersection of three disciplines. Each one reinforces the others. Together they produce GTM motions that are defensible, measurable, and fast.</div>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <div class="step">Foundation</div>
-        <h3>Working Backwards</h3>
-        <p>Start from the customer question, not the product feature. Write the press release before the roadmap. Define differentiation from the buyer's perspective. If you cannot articulate why a customer would choose you in one paragraph, the GTM strategy has not started yet.</p>
-      </div>
-      <div class="method-card">
-        <div class="step">Execution</div>
-        <h3>MEDDPICC Discipline</h3>
-        <p>Every opportunity qualifies through Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion, and Competition. No exceptions. Pipeline without qualification rigor produces forecasts that lie.</p>
-      </div>
-      <div class="method-card">
-        <div class="step">Acceleration</div>
-        <h3>AI-Native Delivery</h3>
-        <p>AI has dramatically altered time to value. A product team today wins on speed, feedback, and prioritization, not perfection. CloudZero embeds AI into every deliverable, compressing timelines that used to take quarters into weeks.</p>
-      </div>
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow">Get started</div>
+    <h2>Start with a working session.</h2>
+    <p>Tell us where you are in your AWS partnership — tier, pipeline status, what is stalling — and we will come prepared with a clear view of the gap and the right starting point. No pitch deck. Just the conversation.</p>
+    <div class="contact-links">
+      <a href="mailto:yasmine@cloudzero.ca" class="cbtn p">Email us directly</a>
+      <a href="#services" class="cbtn">See engagement tiers</a>
     </div>
   </div>
+</section>
 
-  <!-- ABOUT / TEAM -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <div class="about-intro">
-        <p>CloudZero is a boutique advisory firm operating at the intersection of cloud platforms and silicon and technology vendors. We were built for the part of the market where the technology is real, the buyers are sophisticated, and the difference between a deck and a deal is the quality of execution in the field.</p>
-        <p>We use AI heavily across research, enablement, targeting, and field execution. The leverage shows up in the speed and depth of our work; the judgment, the relationships, and the accountability remain human.</p>
-        <p>CloudZero is a minority-owned firm.</p>
-      </div>
-
-      <h3 class="section-title" id="team" style="font-size:24px; margin-bottom:40px;">Founder</h3>
-      <div class="team-grid">
-
-        <div class="team-card">
-          <div class="team-card-body">
-            <h3>Hisham Dalle | MBA, B.Eng</h3>
-            <div class="role">Founder</div>
-            <p>Hisham is a technology executive with over 20 years selling, architecting, and evangelizing enterprise compute across North America and the Middle East. He is a former Senior Azure Specialist at Microsoft Canada — where he owned the largest Azure territory in the country and won Microsoft's AI Apps Visionary award — and was previously a two-time Sales Champion at both Cisco Systems and Nokia. He founded CloudZero in 2010, originally as a private cloud and infrastructure advisory firm, and has since transformed it into an AI-native GTM engineering practice that deploys agentic AI across every client engagement. He is a McGill engineer with an MBA, and is trilingual across English, French, and Arabic.</p>
-            <div class="social">
-              <a href="https://www.linkedin.com/in/hishamdalle/">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <h3 class="section-title" style="font-size:24px; margin:60px 0 16px;">Advisory Board</h3>
-      <p class="section-subtitle">Senior practitioners who advise CloudZero in their personal capacity. Their views and engagements with us are independent of their employers.</p>
-      <div class="team-grid">
-
-        <div class="team-card">
-          <div class="team-card-body">
-            <h3>Goni Sarakinov | SABSA SCF, CISSP, CIPM, CIPT</h3>
-            <div class="role">Advisor &mdash; Security &amp; Privacy</div>
-            <p>Goni is a Cyber Security and Privacy professional with over 25 years advising public and private sector organizations on the security architecture, privacy posture, and regulatory frameworks required to deploy enterprise technology at scale. A SABSA Chartered Enterprise Security Architect and CISSP, he runs Sarakinov Consulting and brings the trust architecture that lets large enterprises commit to cloud and accelerated-compute solutions with confidence.</p>
-            <div class="social">
-              <a href="https://www.linkedin.com/in/gonisarakinov/">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-card-body">
-            <h3>Carlos Dominguez | SABSA SCF, CISA, CISSP</h3>
-            <div class="role">Advisor &mdash; Enterprise Architecture</div>
-            <p>Carlos is an Enterprise Security Architect with over 20 years across multiple sectors, currently working at the intersection of AI and cybersecurity — both securing AI systems and applying AI to cybersecurity. His career spans senior architecture roles at major systems integrators, insurers, and telecommunications firms, and his research interests center on enterprise security architecture frameworks and knowledge management methods.</p>
-            <div class="social">
-              <a href="https://www.linkedin.com/in/carlos-l-dominguez/">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <br>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Ready to build your GTM engine?</h3>
-          <p style="color:#777; line-height:1.7;">Tell us where you are. We will show you where the market says you should be. Then we build the machine to get you there.</p>
-        </div>
-        <form class="contact-form" action="https://formspree.io/f/mbdqborg" method="POST">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email Address" required>
-          <textarea name="message" placeholder="Message" required></textarea>
-          <button type="submit" class="btn">Submit</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="logo-foot">CLOUD<span>ZERO</span></div>
-    <p style="margin-bottom:8px;">Minority-Owned &middot; AI-Native GTM Strategy</p>
-    <p>&copy; CloudZero 2026. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.querySelector('.nav-toggle').addEventListener('click', function() {
-      document.getElementById('nav-menu').classList.toggle('open');
-    });
-    window.addEventListener('scroll', function() {
-      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
+<footer>
+  <div class="fl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 40" role="img" aria-label="CloudZero" style="height:22px;width:auto;display:block;color:rgba(255,255,255,0.92)"><g fill="currentColor"><polygon points="4,7 20,1.5 36,7 20,12.5"/><polygon points="4,15 20,9.5 36,15 20,20.5" opacity="0.6"/><polygon points="4,23 20,17.5 36,23 20,28.5" opacity="0.38"/><polygon points="4,31 20,25.5 36,31 20,36.5" opacity="0.22"/></g><text x="50" y="28" font-family="'DM Sans',-apple-system,Segoe UI,sans-serif" font-size="27" letter-spacing="-0.5"><tspan fill="currentColor" font-weight="500">cloud</tspan><tspan fill="#e8822a" font-weight="700">zero</tspan></text></svg></div>
+  <div class="fr">
+    <a href="https://aws.amazon.com/marketplace/seller-profile?id=seller-y3ixtj5ke7oco" target="_blank">CloudZero on Marketplace</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:yasmine@cloudzero.ca">yasmine@cloudzero.ca</a>
+    &nbsp;·&nbsp;
+    Not affiliated with Amazon Web Services Inc.
+  </div>
+</footer>
 
 </body>
 </html>

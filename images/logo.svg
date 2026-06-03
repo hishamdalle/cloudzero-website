@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 40" role="img" aria-label="CloudZero">
+  <!-- Layered-diamond mark. Uses currentColor so it inverts per background;
+       set color:#fff on dark nav, color:var(--navy) on light surfaces. -->
+  <g fill="currentColor">
+    <polygon points="4,7 20,1.5 36,7 20,12.5"/>
+    <polygon points="4,15 20,9.5 36,15 20,20.5" opacity="0.6"/>
+    <polygon points="4,23 20,17.5 36,23 20,28.5" opacity="0.38"/>
+    <polygon points="4,31 20,25.5 36,31 20,36.5" opacity="0.22"/>
+  </g>
+  <text x="50" y="28" font-family="'DM Sans',-apple-system,Segoe UI,sans-serif"
+        font-size="27" letter-spacing="-0.5">
+    <tspan fill="currentColor" font-weight="500">cloud</tspan><tspan fill="#e8822a" font-weight="700">zero</tspan>
+  </text>
+</svg>
