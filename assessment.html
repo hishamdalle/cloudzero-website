@@ -93,20 +93,20 @@ h1{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.6vw,2.6rem);col
 <div class="wrap">
   <div class="eyebrow">AWS Partner Readiness</div>
   <h1>Where does your AWS partnership actually stand?</h1>
-  <p class="lede">Six questions, about two minutes. You'll get a scored read on how ready you are to co-sell with AWS — and what to sequence next. No email required to see your result.</p>
+  <p class="lede">Seven quick questions, about two minutes. You'll get a scored read on how ready you are to co-sell with AWS — tailored to your business model — and what to sequence next. No email required to see your result.</p>
 
-  <div class="progress-meta"><span id="counter">0 of 6 answered</span><span id="pct">0%</span></div>
+  <div class="progress-meta"><span id="counter">0 of 7 answered</span><span id="pct">0%</span></div>
 
   <form id="quiz"></form>
 
   <div class="submit-row">
     <button class="btn-primary" id="seeResult" disabled>See my result</button>
-    <div class="hint" id="hint">Answer all six questions to unlock your score.</div>
+    <div class="hint" id="hint">Answer every question to unlock your score.</div>
   </div>
 
   <div class="result" id="result">
     <div class="eyebrow">Your readiness</div>
-    <div class="score-ring"><span class="n" id="scoreN">0</span><span class="d">/ 24</span></div>
+    <div class="score-ring"><span class="n" id="scoreN">0</span><span class="d">% ready</span></div>
     <div class="band" id="bandName"></div>
     <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
     <p class="diag" id="diag"></p>
@@ -127,73 +127,80 @@ h1{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.6vw,2.6rem);col
 
 <script>
 const QUESTIONS = [
-  { tag: "APN · Services Path", dim: "Stage",
-    title: "Where are you on the AWS Partner Network Services Path?",
-    opts: [
-      "Not enrolled yet, or just Registered",
-      "Enrolled and working toward Confirmed",
-      "Confirmed (APN fee paid) and building toward Validated / Select",
-      "Validated or Differentiated with a Competency or Specialization" ] },
-  { tag: "Co-sell · ACE", dim: "Co-sell",
-    title: "What does your co-sell motion with AWS look like?",
-    opts: [
-      "We don't have one. Pipeline comes from our own relationships",
-      "Occasional referrals from a seller or two we happen to know",
-      "A defined co-sell motion with field kits and regular ACE submissions",
-      "ACE-eligible — AWS account teams bring opportunities to us" ] },
-  { tag: "Technical · Validation", dim: "Technical",
-    title: "How far along is your technical validation with AWS?",
-    opts: [
+  { tag:"Your business", dim:"Segment", scored:false,
+    title:"First — which best describes your business?",
+    opts:[
+      "Technology partner / ISV — you build software, data, or IP that runs on AWS",
+      "Consulting, SI, reseller, MSP or supplier — you deliver services or resell on AWS" ] },
+  { tag:"APN · your path", dim:"Stage", scored:true,
+    title:"Where are you in the AWS Partner Network?",
+    opts:[
+      "Registered, or not formally enrolled in a Path yet",
+      "Enrolled in your Path (Services or Software)",
+      "Confirmed — APN fee paid, building toward a tier",
+      "Validated / Select+ with a Competency or Specialization" ] },
+  { tag:"Co-sell · ACE", dim:"Co-sell", scored:true,
+    title:"What does your co-sell motion with AWS look like?",
+    opts:[
+      "We don't have one — we're not ACE-eligible yet",
+      "We're ACE-eligible, but pipeline still comes from our own relationships",
+      "We're ACE-eligible and getting occasional referrals from AWS sellers" ] },
+  { tag:"Technical · validation", dim:"Technical", scored:true,
+    title:"How far along is your technical validation with AWS?",
+    opts:[
       "A few individual certifications, nothing formalized",
       "Foundational Technical Review (FTR) in progress or done",
       "One Competency or the Agentic AI Specialization underway",
       "Multiple Competencies / Specializations validated" ] },
-  { tag: "Funding · Programs", dim: "Funding",
-    title: "How are you using AWS partner funding today?",
-    opts: [
-      "We're not using AWS funding, or didn't know we qualified",
-      "We've used MDF or MAP once, ad hoc",
-      "We actively apply for MAP / MDF on live opportunities",
-      "We run a funding lifecycle across MAP, MDF, MPOPP and more" ] },
-  { tag: "Marketplace", dim: "Marketplace",
-    title: "What's your AWS Marketplace posture?",
-    opts: [
+  { tag:"Funding · programs", dim:"Funding", scored:true,
+    title:"How are you using AWS partner funding today?",
+    opts:[
+      "We're not using AWS funding — or didn't know we qualified",
+      "We tap POC and Innovation Sandbox credits sporadically",
+      "We actively put MDF and MAP to work on live deals",
+      "We run a structured funding lifecycle (POC, Sandbox, MDF, MAP…)" ] },
+  { tag:"AWS Marketplace", dim:"Marketplace", scored:true,
+    title:"What's your AWS Marketplace posture?",
+    opts:[
       "Not on Marketplace",
       "Registered as a seller, no live listing yet",
       "Listing is live and transacting",
       "Running private offers / CPPO tied to co-sell pipeline" ] },
-  { tag: "Field relationships", dim: "Field",
-    title: "How developed are your AWS field relationships?",
-    opts: [
+  { tag:"Field relationships", dim:"Field", scored:true,
+    title:"How developed are your AWS field relationships?",
+    opts:[
       "We're not sure who our PDM is",
       "We know our PDM but engage occasionally",
       "We work our PDM, PSA, and PES deliberately",
       "AWS field teams sponsor us into accounts and funding" ] }
 ];
+const SCORED = QUESTIONS.map((q,i)=>({q,i})).filter(o=>o.q.scored);
+const TOTAL = QUESTIONS.length;
 
 const BANDS = [
-  { min: 6,  max: 11, name: "Foundation stage",
-    tier: "Foundation — Assessment & Plan", tierNote: "map the gap, sequence the first 90 days",
-    diag: "You have real capability, but the AWS partnership isn't yet working for you as a system. The biggest wins right now are sequencing — doing the right things in the right order so each step unlocks the next. Most of your leverage is still unclaimed." },
-  { min: 12, max: 17, name: "Building momentum",
-    tier: "Accelerate — Plan & Execution", tierNote: "hands-on delivery of ACE, funding, and Marketplace",
-    diag: "You're moving, with pieces in place across tier, funding, or co-sell — but there are gaps in the sequence that quietly cap your return. Tightening the motion and getting the field relationships working is what turns activity into AWS-sourced pipeline." },
-  { min: 18, max: 22, name: "Co-sell ready",
-    tier: "Accelerate or Embedded", tierNote: "optimize the motion and scale it",
-    diag: "You're running a credible AWS practice with most of the machinery in place. The opportunity now is optimization and scale — converting consistent execution into AWS bringing you opportunities, and making sure no funding or Marketplace lever is left on the table." },
-  { min: 23, max: 24, name: "Differentiated",
-    tier: "Embedded — Ongoing Partner Management", tierNote: "an alliances function without the headcount",
-    diag: "You're operating like a top-tier partner. At this level the work is staying ahead of program changes, keeping the pipeline and funding lifecycle clean, and running it continuously without it consuming your team. That's an ongoing alliances function, not a project." }
+  { max:30,  name:"Foundation stage", tier:"Foundation — Assessment & Plan", tierNote:"map the gap, sequence the first 90 days",
+    diag:"You have real capability, but the AWS partnership isn't yet working for you as a system. The biggest wins right now are sequencing — doing the right things in the right order so each step unlocks the next. Most of your leverage is still unclaimed." },
+  { max:60,  name:"Building momentum", tier:"Accelerate — Plan & Execution", tierNote:"hands-on delivery of ACE, funding, and Marketplace",
+    diag:"You're moving, with pieces in place across tier, funding, or co-sell — but there are gaps in the sequence that quietly cap your return. Tightening the motion and getting the field relationships working is what turns activity into AWS-sourced pipeline." },
+  { max:85,  name:"Co-sell ready", tier:"Accelerate or Embedded", tierNote:"optimize the motion and scale it",
+    diag:"You're running a credible AWS practice with most of the machinery in place. The opportunity now is optimization and scale — converting consistent execution into AWS bringing you opportunities, with no funding or Marketplace lever left on the table." },
+  { max:100, name:"Differentiated", tier:"Embedded — Ongoing Partner Management", tierNote:"an alliances function without the headcount",
+    diag:"You're operating like a top-tier partner. At this level the work is staying ahead of program changes, keeping the pipeline and funding lifecycle clean, and running it continuously without it consuming your team. That's an ongoing alliances function, not a project." }
 ];
 
-const STRONG = {
-  Stage:"Solid standing on the Services Path", Co_sell:"A working co-sell motion",
-  Technical:"Technical validation AWS trusts", Funding:"You're capturing AWS funding",
-  Marketplace:"Marketplace is live for you", Field:"Real AWS field relationships" };
-const GAP = {
-  Stage:"Advance your Services Path stage in the right order", Co_sell:"Build a repeatable ACE co-sell motion",
-  Technical:"Close the technical-validation gap (FTR, Competency, Specialization)", Funding:"Put MAP / MDF funding to work — you likely qualify for more",
-  Marketplace:"Turn Marketplace into a co-sell channel, not a checkbox", Field:"Develop the PDM / PSA / PES relationships that unlock everything" };
+const COPY = {
+  Stage:       { strong:"Solid standing on your AWS Partner path", gap:"Advance your Partner-path stage in the right order" },
+  "Co-sell":   { strong:"A working co-sell motion", gap:"Build a repeatable ACE co-sell motion" },
+  Technical:   { strong:"Technical validation AWS trusts",
+                 gap_isv:"Complete the Foundational Technical Review — the gate ISVs need first",
+                 gap_si:"Close the technical-validation gap (certs, Competency, Specialization)" },
+  Funding:     { strong:"You're capturing AWS funding", gap:"Put POC / Sandbox / MDF / MAP funding to work — you likely qualify for more" },
+  Marketplace: { strong:"Marketplace is working for you",
+                 gap_isv:"List on AWS Marketplace and pursue ISV Accelerate / private offers",
+                 gap_si:"Turn Marketplace into a co-sell channel via CPPO and private offers" },
+  Field:       { strong:"Real AWS field relationships", gap:"Develop the PDM / PSA / PES relationships that unlock everything" }
+};
+function gapText(dim, seg){ const c=COPY[dim]; return (seg==='isv'&&c.gap_isv)||(seg==='si'&&c.gap_si)||c.gap; }
 
 const form = document.getElementById('quiz');
 const answers = {};
@@ -211,13 +218,12 @@ QUESTIONS.forEach((q, i) => {
 
 function refresh() {
   const n = Object.keys(answers).length;
-  document.getElementById('counter').textContent = n + ' of 6 answered';
-  const pct = Math.round(n / 6 * 100);
+  document.getElementById('counter').textContent = n + ' of ' + TOTAL + ' answered';
+  const pct = Math.round(n / TOTAL * 100);
   document.getElementById('pct').textContent = pct + '%';
   document.getElementById('pfill').style.width = pct + '%';
-  const btn = document.getElementById('seeResult');
-  btn.disabled = n < 6;
-  document.getElementById('hint').style.display = n < 6 ? 'block' : 'none';
+  document.getElementById('seeResult').disabled = n < TOTAL;
+  document.getElementById('hint').style.display = n < TOTAL ? 'block' : 'none';
 }
 
 form.addEventListener('change', e => {
@@ -235,26 +241,30 @@ form.addEventListener('change', e => {
 });
 
 document.getElementById('seeResult').addEventListener('click', () => {
-  const score = Object.values(answers).reduce((a, b) => a + b, 0);
-  const band = BANDS.find(b => score >= b.min && score <= b.max);
+  const seg = answers[0] === 1 ? 'isv' : 'si';
+  let got = 0, max = 0;
+  SCORED.forEach(({ q, i }) => { got += (answers[i] - 1); max += (q.opts.length - 1); });
+  const readiness = Math.round(got / max * 100);
+  const band = BANDS.find(b => readiness <= b.max);
+
+  const segLabel = seg === 'isv' ? 'As a technology partner / ISV' : 'As a services, consulting or reseller partner';
   document.getElementById('bandName').textContent = band.name;
-  document.getElementById('diag').textContent = band.diag;
+  document.getElementById('diag').textContent = segLabel + ', ' + band.diag.charAt(0).toLowerCase() + band.diag.slice(1);
   document.getElementById('recTier').innerHTML = band.tier + ' <span>— ' + band.tierNote + '</span>';
-  // strongest two dimensions and weakest two
-  const dims = QUESTIONS.map((q, i) => ({ dim: q.dim, v: answers[i] || 0 }));
-  const strong = [...dims].sort((a, b) => b.v - a.v).filter(d => d.v >= 3).slice(0, 2);
-  const gaps = [...dims].sort((a, b) => a.v - b.v).filter(d => d.v <= 2).slice(0, 3);
-  const key = d => d.replace('-', '_');
-  const sl = document.getElementById('strongList');
-  const gl = document.getElementById('gapList');
-  sl.innerHTML = strong.length ? strong.map(d => '<li>' + STRONG[key(d.dim)] + '</li>').join('')
+
+  const ratios = SCORED.map(({ q, i }) => ({ dim: q.dim, r: (answers[i] - 1) / (q.opts.length - 1) }));
+  const strong = ratios.filter(d => d.r >= 0.66).sort((a, b) => b.r - a.r).slice(0, 2);
+  const gaps = ratios.filter(d => d.r <= 0.34).sort((a, b) => a.r - b.r).slice(0, 3);
+  const sl = document.getElementById('strongList'), gl = document.getElementById('gapList');
+  sl.innerHTML = strong.length ? strong.map(d => '<li>' + COPY[d.dim].strong + '</li>').join('')
     : '<li>Plenty of upside — almost everything is still to claim.</li>';
-  gl.innerHTML = gaps.length ? gaps.map(d => '<li>' + GAP[key(d.dim)] + '</li>').join('')
+  gl.innerHTML = gaps.length ? gaps.map(d => '<li>' + gapText(d.dim, seg) + '</li>').join('')
     : '<li>No major gaps — the work is optimization and staying current.</li>';
-  document.getElementById('scoreN').textContent = score;
+
+  document.getElementById('scoreN').textContent = readiness;
   const res = document.getElementById('result');
   res.classList.add('show');
-  setTimeout(() => { document.getElementById('meterFill').style.width = Math.round(score / 24 * 100) + '%'; }, 60);
+  setTimeout(() => { document.getElementById('meterFill').style.width = readiness + '%'; }, 60);
   res.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
